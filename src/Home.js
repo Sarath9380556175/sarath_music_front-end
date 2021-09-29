@@ -4,7 +4,7 @@ import Modal from 'react-modal';
 import axios from 'axios';
 import GoogleLogin from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
-
+ import qs from 'query-string';
 const customStyles = {
       
       top: '50%',
@@ -61,9 +61,11 @@ class Skr extends React.Component{
 componentDidMount()
 {
     
-    const siva=localStorage.getItem('skr')
+      const skr=qs.parse(this.props.location.search)
 
-    this.setState({username:siva})
+    this.setState({username:skr.email})
+
+   
 
     axios({
         url:'https://tranquil-bastion-03369.herokuapp.com/mails',
