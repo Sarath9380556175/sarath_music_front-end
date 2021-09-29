@@ -21,7 +21,7 @@ class Requestsong extends React.Component{
 
 
             axios({
-                url:'http://localhost:2077/songsrequest',
+                url:'https://tranquil-bastion-03369.herokuapp.com/songsrequest',
                 method:'POST',
                 headers:{'Content-type':'application/json'},
                 data:
