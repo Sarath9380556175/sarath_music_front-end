@@ -4,7 +4,7 @@ import Modal from 'react-modal';
 import axios from 'axios';
 import GoogleLogin from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
- import qs from 'query-string';
+
 const customStyles = {
       
       top: '50%',
