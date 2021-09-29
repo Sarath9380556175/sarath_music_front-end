@@ -19,9 +19,7 @@ class Thankyou extends React.Component{
 
     back=()=>{
         const {email}=this.state;
-
-        localStorage.setItem('skr',email)
-        this.props.history.push(`/home`)
+        this.props.history.push(`/home?email=${email}`)
     }
     render()
     {
