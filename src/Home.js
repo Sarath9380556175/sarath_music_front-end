@@ -470,7 +470,7 @@ this.props.history.push(`/songrequest/?email=${youremail}&&moviename=${moviename
         return(
         <div>
          
-        <div className="skr" style={{textAlign:'center'}}>
+        <div className="skr" style={{textAlign:'center'}} >
         <img src="songimages/companylogo.png" className="mr-3" alt="Nothing Found" style={{textAlign:'left',borderRadius:'50px'}} width="50px" height="50px"/>
         </div>
 
