@@ -1,0 +1,32 @@
+
+
+body{
+    background-color:red;
+
+}
+
+.skr{
+    background-color:green;
+    padding: 10px 0px 10px 0px;
+    color: yellow;
+}
+
+@keyframes slkr {
+
+    0%{
+        color:red;
+
+    }
+   
+    50%{
+        color:yellow;
+    }
+
+    100%{
+        color: chartreuse;
+    }
+}
+
+.srh{
+    animation:slkr 2s infinite;
+}
