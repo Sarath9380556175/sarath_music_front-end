@@ -17,7 +17,7 @@ class Newpasword extends React.Component{
     {
         const otp=sessionStorage.getItem('otp');
         axios({
-            url:'http://localhost:2077/deleteotp',
+            url:'https://tranquil-bastion-03369.herokuapp.com/deleteotp',
             method:'POST',
             headers:{'Content-type':'application/json'},
             data:
@@ -35,7 +35,7 @@ class Newpasword extends React.Component{
 
         const email=localStorage.getItem('useremail');
         axios({
-            url:'http://localhost:2077/updatepassword',
+            url:'https://tranquil-bastion-03369.herokuapp.com/updatepassword',
             method:'POST',
             headers:{'Content-type':'application/json'},
             data:
