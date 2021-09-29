@@ -60,8 +60,7 @@ class Skr extends React.Component{
     }
 componentDidMount()
 {
-    const skr=qs.parse(this.props.location.search)
-
+    
     const siva=localStorage.getItem('skr')
 
     this.setState({username:siva})
