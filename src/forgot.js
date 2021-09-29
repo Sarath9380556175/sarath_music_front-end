@@ -18,7 +18,7 @@ class Forgot extends React.Component{
         sessionStorage.setItem('otp',otp);
 
         axios({
-            url:'http://localhost:2077/isotpvalid',
+            url:'https://tranquil-bastion-03369.herokuapp.com/isotpvalid',
             method:'POST',
             headers:{'Content-type':'application/json'},
             data:
