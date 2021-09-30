@@ -40,3 +40,13 @@ body{
 } 
     
 }
+
+
+@media only screen and (min-width: 1000px) and (max-width:1500px)
+{
+.rmr{
+  height:500px;
+
+} 
+    
+}
