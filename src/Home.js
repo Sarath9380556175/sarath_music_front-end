@@ -4,8 +4,10 @@ import Modal from 'react-modal';
 import axios from 'axios';
 import GoogleLogin from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
- import qs from 'query-string';
+import Zoom from 'react-reveal/Zoom'
 import Bounce from 'react-reveal/Bounce'
+ 
+ import qs from 'query-string';
 const customStyles = {
       
       top: '50%',
@@ -61,15 +63,12 @@ class Skr extends React.Component{
     }
 componentDidMount()
 {
-    
-      const skr=qs.parse(this.props.location.search)
+    const skr=qs.parse(this.props.location.search)
 
     this.setState({username:skr.email})
 
-   
-
     axios({
-        url:'https://tranquil-bastion-03369.herokuapp.com/mails',
+        url:'http://localhost:2077/mails',
         method:'POST',
         headers:{'Content-type':'application/json'}
     })
@@ -81,7 +80,7 @@ componentDidMount()
 
 
     axios({
-        url:'https://tranquil-bastion-03369.herokuapp.com/songsrequestedmails',
+        url:'http://localhost:2077/songsrequestedmails',
         method:'POST',
         headers:{'Content-type':'application/json'}
     })
@@ -104,7 +103,7 @@ componentDidMount()
         this.setState({name:name});
 
         axios({
-            url:'https://tranquil-bastion-03369.herokuapp.com/signupcheck',
+            url:'http://localhost:2077/signupcheck',
             method:'POST',
             headers:{'Content-type':'application/json'},
             data:
@@ -136,7 +135,7 @@ componentDidMount()
         if(userexist===false)
         {
             axios({
-                url:'https://tranquil-bastion-03369.herokuapp.com/signup',
+                url:'http://localhost:2077/signup',
                 method:'POST',
                 headers:{'Content-Type':'application/json'},
                 data:
@@ -177,12 +176,10 @@ this.setState({login:true})
 
     names=(event)=>{
         const names=event.target.value;
-     
-       localStorage.setItem('useremail',names)
-    
 
       this.setState({names:names})
 
+      localStorage.setItem('useremail',names)
     
     }
 
@@ -219,7 +216,7 @@ responseFacebook=(response)=>{
         const password=event.target.value;
 
         axios({
-            url:'https://tranquil-bastion-03369.herokuapp.com/login',
+            url:'http://localhost:2077/login',
             method:'POST',
             headers:{'Content-type':'application/json'},
             data:
@@ -241,7 +238,7 @@ const email=localStorage.getItem('useremail');
 
 
 axios({
-    url:'https://tranquil-bastion-03369.herokuapp.com/forgot',
+    url:'http://localhost:2077/forgot',
     method:'POST',
     headers:{'Content-type':'application/json'},
     data:
@@ -303,7 +300,7 @@ this.props.history.push('/forgot')
     notification=()=>{
         const {mails,notificationmessage,attachments}=this.state;
         axios({
-            url:'https://tranquil-bastion-03369.herokuapp.com/notifications',
+            url:'http://localhost:2077/notifications',
             method:'POST',
             headers:{'Content-type':'application/json'},
             data:
@@ -335,7 +332,7 @@ this.props.history.push('/forgot')
 const adminpassword=event.target.value;
 
 axios({
-    url:'https://tranquil-bastion-03369.herokuapp.com/admin',
+    url:'http://localhost:2077/admin',
     method:'POST',
     headers:{'Content-type':'application/json'},
     data:
@@ -456,7 +453,7 @@ this.props.history.push(`/songrequest/?email=${youremail}&&moviename=${moviename
     bujala=()=>{
         const {songsrequestedmails}=this.state;
         axios({
-            url:'https://tranquil-bastion-03369.herokuapp.com/requestedsongnotification',
+            url:'http://localhost:2077/requestedsongnotification',
             method:'POST',
             headers:{'Content-type':'application/json'},
             data:
@@ -475,14 +472,14 @@ this.props.history.push(`/songrequest/?email=${youremail}&&moviename=${moviename
         return(
         <div>
          
-        <div className="skr" style={{textAlign:'center'}} >
-          <Bounce bottom cascade><img src="songimages/companylogo.png" className="mr-3" alt="Nothing Found" style={{textAlign:'left',borderRadius:'50px'}} width="50px" height="50px"/></Bounce>
+        <div className="skr" style={{textAlign:'center'}}>
+        <Bounce bottom cascade><img src="songimages/companylogo.png" className="mr-3" alt="Nothing Found" style={{textAlign:'left',borderRadius:'50px'}} width="50px" height="50px"/></Bounce>
         </div>
 
            <div className="skr" style={{textAlign:'right'}}>
           
         
-            <div style={{display:'inline'}} className="mr-3 " onClick={this.admin}>ADMIN</div>
+            <Zoom left cascade><div style={{display:'inline'}} className="mr-3 " onClick={this.admin}>ADMIN</div></Zoom>
             
                 {username===undefined?null:<div style={{display:'inline'}} className="mr-3">{username}</div>}
                 {googleusername===undefined?null:<div style={{display:'inline'}} className="mr-3">{googleusername}</div>}
