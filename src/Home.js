@@ -673,15 +673,15 @@ this.props.history.push(`/songrequest/?email=${youremail}&&moviename=${moviename
   
 
             <div >
-                    <img src="songimages/orange.jpg" className="rmr"  />
+                    <img src="songimages/orange.jpg" className="rmr" alt="Nothing Found" />
                     <p className="legend">Legend 1</p>
                 </div>
                 <div>
-                    <img src="songimages/down.jpg " className="rmr"    />
+                    <img src="songimages/down.jpg " className="rmr"  alt="Nothing Found"   />
                     <p className="legend">Legend 2</p>
                 </div>
                 <div>
-                    <img src="songimages/telugupushpa.jpg" className="rmr"  />
+                    <img src="songimages/telugupushpa.jpg" className="rmr" alt="Nothing Found"   />
                     <p className="legend">Legend 3</p>
 
                 </div>
