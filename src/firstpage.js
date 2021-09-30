@@ -1,5 +1,4 @@
 import React from 'react';
-import '../src/fuck.css';
 class Page extends React.Component{
     constructor()
     {
@@ -31,7 +30,7 @@ class Page extends React.Component{
     {
         return(
             <div>
-                <img src="songimages/companylogo.png" className="fixed-top fuck" width="100%" height="630px" alt="Nothing Found"/>
+                <img src="songimages/companylogo.png" className="fixed-top" width="100%" height="100%" alt="Nothing Found"/>
             </div>
         )
     }
