@@ -104,7 +104,7 @@ return <div style={{color:'white',display:'inline'}}>{item}&nbsp;</div>
 :songs.length!==0?<div className="container-fluid text-center">
           
 {songs.map((item)=>{
-return  <div  >
+return   <Zoom top cascade><div  >
 <img src={`../songimages/${item.image}`}  className="ml-2 mb-3" alt="NOTHING FOUND" style={{borderRadius:'50px',width:"40px" ,height:"40px",display:'inline-block'}}/>
 <audio src={`../videos/${item.audiopath}`} controls autoplayloop  className="mt-3 ml-3"  style={{boxShadow:'4px 0px 0px 4px yellow', backgroundColor:'green',color:'yellow',height:'50px'}}></audio>
 
@@ -116,6 +116,7 @@ return <div style={{color:'white',display:'inline'}}>{item}&nbsp;</div>
 })}
 <br/>  
 </div>
+</Zoom>
 })}
 
 
