@@ -5,6 +5,7 @@ import axios from 'axios';
 import GoogleLogin from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
  import qs from 'query-string';
+import Bounce from 'react-reveal/Bounce'
 const customStyles = {
       
       top: '50%',
@@ -473,7 +474,7 @@ this.props.history.push(`/songrequest/?email=${youremail}&&moviename=${moviename
         <div>
          
         <div className="skr" style={{textAlign:'center'}} >
-        <img src="songimages/companylogo.png" className="mr-3" alt="Nothing Found" style={{textAlign:'left',borderRadius:'50px'}} width="50px" height="50px"/>
+          <Bounce bottom cascade><img src="songimages/companylogo.png" className="mr-3" alt="Nothing Found" style={{textAlign:'left',borderRadius:'50px'}} width="50px" height="50px"/></Bounce>
         </div>
 
            <div className="skr" style={{textAlign:'right'}}>
