@@ -59,7 +59,8 @@ class Skr extends React.Component{
             languageselection:undefined,
             songsrequestedmails:[],
             requestedsongs:false,
-            lakshmi:false
+            lakshmi:false,
+           images:[]
 
         }
     }
@@ -76,6 +77,16 @@ componentDidMount()
     })
 
     .then(response=>this.setState({mails:response.data.mail}))
+
+    .catch(error=>console.log(error));
+
+ axios({
+        url:'http://localhost:2077/images',
+        method:'POST',
+        headers:{'Content-type':'application/json'}
+    })
+
+    .then(response=>this.setState({images:response.data.images}))
 
     .catch(error=>console.log(error));
 
@@ -469,7 +480,7 @@ this.props.history.push(`/songrequest/?email=${youremail}&&moviename=${moviename
     }
     render()
     {
-        const {help,lakshmi,requestedsongs,isadminverified,admin,notification,signup,login,facebookusername,facebookuserimage,googleuserimage,googleusername,isvaliduser,username}=this.state;
+        const {help,images,lakshmi,requestedsongs,isadminverified,admin,notification,signup,login,facebookusername,facebookuserimage,googleuserimage,googleusername,isvaliduser,username}=this.state;
       
         return(
         <div>
@@ -669,24 +680,16 @@ this.props.history.push(`/songrequest/?email=${youremail}&&moviename=${moviename
               
             </Modal>
 
-  <Carousel showThumbs={false} showIndicators={false}>
   
-
-            <div >
-                    <img src="songimages/orange.jpg" className="rmr" alt="Nothing Found" />
-                    <p className="legend">Legend 1</p>
-                </div>
-                <div>
-                    <img src="songimages/down.jpg " className="rmr"  alt="Nothing Found"   />
-                    <p className="legend">Legend 2</p>
-                </div>
-                <div>
-                    <img src="songimages/telugupushpa.jpg" className="rmr" alt="Nothing Found"   />
-                    <p className="legend">Legend 3</p>
-
-                </div>
-
-          
+            <Carousel showThumbs={false} showIndicators={false}>
+  
+         {images.length!==0?images.map((item)=>{
+             return <div >
+             <img src={`songimages/${item.imagename}`} className="rmr" alt="Nothing Found"   />
+             <p className="legend">{item.imagetitle}</p>
+         </div>
+         }):null}
+              
 </Carousel>
 
 
