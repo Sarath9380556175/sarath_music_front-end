@@ -681,7 +681,7 @@ this.props.history.push(`/songrequest/?email=${youremail}&&moviename=${moviename
             </Modal>
 
   
-            <Carousel showThumbs={false} showIndicators={false}>
+            <Carousel showThumbs={false} showIndicators={true} infiniteLoop={true} autoPlay={true}>
   
          {images.length!==0?images.map((item)=>{
              return <div >
