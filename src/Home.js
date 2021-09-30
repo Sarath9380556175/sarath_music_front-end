@@ -68,7 +68,7 @@ componentDidMount()
     this.setState({username:skr.email})
 
     axios({
-        url:'http://localhost:2077/mails',
+        url:'https://tranquil-bastion-03369.herokuapp.com/mails',
         method:'POST',
         headers:{'Content-type':'application/json'}
     })
@@ -80,7 +80,7 @@ componentDidMount()
 
 
     axios({
-        url:'http://localhost:2077/songsrequestedmails',
+        url:'https://tranquil-bastion-03369.herokuapp.com/songsrequestedmails',
         method:'POST',
         headers:{'Content-type':'application/json'}
     })
@@ -103,7 +103,7 @@ componentDidMount()
         this.setState({name:name});
 
         axios({
-            url:'http://localhost:2077/signupcheck',
+            url:'https://tranquil-bastion-03369.herokuapp.com/signupcheck',
             method:'POST',
             headers:{'Content-type':'application/json'},
             data:
@@ -135,7 +135,7 @@ componentDidMount()
         if(userexist===false)
         {
             axios({
-                url:'http://localhost:2077/signup',
+                url:'https://tranquil-bastion-03369.herokuapp.com/signup',
                 method:'POST',
                 headers:{'Content-Type':'application/json'},
                 data:
@@ -216,7 +216,7 @@ responseFacebook=(response)=>{
         const password=event.target.value;
 
         axios({
-            url:'http://localhost:2077/login',
+            url:'https://tranquil-bastion-03369.herokuapp.com/login',
             method:'POST',
             headers:{'Content-type':'application/json'},
             data:
@@ -238,7 +238,7 @@ const email=localStorage.getItem('useremail');
 
 
 axios({
-    url:'http://localhost:2077/forgot',
+    url:'https://tranquil-bastion-03369.herokuapp.com/forgot',
     method:'POST',
     headers:{'Content-type':'application/json'},
     data:
@@ -300,7 +300,7 @@ this.props.history.push('/forgot')
     notification=()=>{
         const {mails,notificationmessage,attachments}=this.state;
         axios({
-            url:'http://localhost:2077/notifications',
+            url:'https://tranquil-bastion-03369.herokuapp.com/notifications',
             method:'POST',
             headers:{'Content-type':'application/json'},
             data:
@@ -332,7 +332,7 @@ this.props.history.push('/forgot')
 const adminpassword=event.target.value;
 
 axios({
-    url:'http://localhost:2077/admin',
+    url:'https://tranquil-bastion-03369.herokuapp.com/admin',
     method:'POST',
     headers:{'Content-type':'application/json'},
     data:
@@ -453,7 +453,7 @@ this.props.history.push(`/songrequest/?email=${youremail}&&moviename=${moviename
     bujala=()=>{
         const {songsrequestedmails}=this.state;
         axios({
-            url:'http://localhost:2077/requestedsongnotification',
+            url:'https://tranquil-bastion-03369.herokuapp.com/requestedsongnotification',
             method:'POST',
             headers:{'Content-type':'application/json'},
             data:
