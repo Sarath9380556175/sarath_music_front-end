@@ -81,7 +81,7 @@ componentDidMount()
     .catch(error=>console.log(error));
 
  axios({
-        url:'http://localhost:2077/images',
+        url:'https://tranquil-bastion-03369.herokuapp.com/images',
         method:'POST',
         headers:{'Content-type':'application/json'}
     })
