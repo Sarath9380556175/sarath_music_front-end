@@ -6,6 +6,8 @@ import GoogleLogin from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
 import Zoom from 'react-reveal/Zoom'
 import Bounce from 'react-reveal/Bounce'
+import { Carousel } from 'react-responsive-carousel';
+import "react-responsive-carousel/lib/styles/carousel.min.css"; 
  
  import qs from 'query-string';
 const customStyles = {
@@ -666,6 +668,26 @@ this.props.history.push(`/songrequest/?email=${youremail}&&moviename=${moviename
        </form>
               
             </Modal>
+
+  <Carousel showThumbs={false} showIndicators={false}>
+  
+
+            <div >
+                    <img src="songimages/orange.jpg" className="rmr"  />
+                    <p className="legend">Legend 1</p>
+                </div>
+                <div>
+                    <img src="songimages/down.jpg " className="rmr"    />
+                    <p className="legend">Legend 2</p>
+                </div>
+                <div>
+                    <img src="songimages/telugupushpa.jpg" className="rmr"  />
+                    <p className="legend">Legend 3</p>
+
+                </div>
+
+          
+</Carousel>
 
 
 
