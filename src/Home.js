@@ -177,10 +177,12 @@ this.setState({login:true})
 
     names=(event)=>{
         const names=event.target.value;
+     
+       localStorage.setItem('useremail',names)
+    
 
       this.setState({names:names})
 
-      localStorage.setItem('useremail',names)
     
     }
 
