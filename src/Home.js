@@ -140,7 +140,6 @@ componentDidMount()
         this.setState({password:password})
 
     }
-
     signup=()=>{
 
         const {name,password,userexist}=this.state;
@@ -213,8 +212,6 @@ this.setState({login:true})
 responseGoogle=(response)=>{
     this.setState({googleusername:response.profileObj.name,googleuserimage:response.profileObj.imageUrl,login:false,googleuserloogedin:true})
 }
-
-
 
 responseFacebook=(response)=>{
     this.setState({facebookusername:response.name,facebookuserimage:response.picture.data.url,login:false})
@@ -305,8 +302,6 @@ this.props.history.push('/forgot')
 
         const attachments=event.target.value;
 
-      
-
         this.setState({attachments:attachments})
 
     }
@@ -336,8 +331,6 @@ this.props.history.push('/forgot')
 
         const adminusername=event.target.value;
         this.setState({adminusername:adminusername})
-
-
     }
 
     adminpassword=(event)=>{
@@ -356,9 +349,7 @@ axios({
 })
 
 .then(response=>this.setState({isadminverified:response.data.isadminverified}))
-
-
-    }
+  }
 
    
 
@@ -379,11 +370,9 @@ axios({
         this.setState({notification:isadminverified})
         alert('INVALID ADMIN DETAILS')
     }
+ }
 
-      
-    }
-
-    ramana=()=>{
+ ramana=()=>{
 
         const {isadminverified}=this.state;
 
@@ -399,8 +388,8 @@ axios({
     }
 
     }
-
-    help=()=>{
+ 
+   help=()=>{
         this.setState({help:true})
     }
 
@@ -450,19 +439,20 @@ this.setState({songname:songname})
     songsrequest=()=>{
 
         const {youremail,moviename,songname,languageselection}=this.state;
-this.props.history.push(`/songrequest/?email=${youremail}&&moviename=${moviename}&&songname=${songname}&&language=${languageselection}`)
+  this.props.history.push(`/songrequest/?email=${youremail}&&moviename=${moviename}&&songname=${songname}&&language=${languageselection}`)
     }
 
     requestedsongs=()=>{
         this.setState({requestedsongs:true})
     }
-    requestedclose=()=>{
+      requestedclose=()=>{
         this.setState({requestedsongs:false})
     }
 
-    requested=()=>{
+   requested=()=>{
         this.setState({lakshmi:false})
     }
+ 
     bujala=()=>{
         const {songsrequestedmails}=this.state;
         axios({
@@ -478,7 +468,8 @@ this.props.history.push(`/songrequest/?email=${youremail}&&moviename=${moviename
         this.props.history.push('/thankyouss')
  
     }
-    render()
+ 
+ render()
     {
         const {help,images,lakshmi,requestedsongs,isadminverified,admin,notification,signup,login,facebookusername,facebookuserimage,googleuserimage,googleusername,isvaliduser,username}=this.state;
       
