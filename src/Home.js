@@ -485,29 +485,39 @@ this.props.history.push(`/songrequest/?email=${youremail}&&moviename=${moviename
         return(
         <div>
          
-        <div className="skr" style={{textAlign:'center'}}>
-        <Bounce bottom cascade><img src="songimages/companylogo.png" className="mr-3" alt="Nothing Found" style={{textAlign:'left',borderRadius:'50px'}} width="50px" height="50px"/></Bounce>
-        </div>
+       
+           <nav className="navbar navbar-expand-md bg-info navbar-dark">
+           {username===undefined?   <Bounce bottom cascade><img src="songimages/companylogo.png" className="mr-3" alt="Nothing Found" style={{textAlign:'left',borderRadius:'50px'}} width="50px" height="50px"/></Bounce>:<div style={{display:'inline'}} className="mr-3 text-white">{username}</div>}
+  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span className="navbar-toggler-icon"></span>
+  </button>
 
-           <div className="skr" style={{textAlign:'right'}}>
-          
-        
-            <Zoom left cascade><div style={{display:'inline'}} className="mr-3 " onClick={this.admin}>ADMIN</div></Zoom>
+
+  <div className="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul className="navbar-nav">
+      <li className="nav-item pt-3" style={{textAlign:'right'}}>
+      <Zoom left cascade><div style={{display:'inline'}} className="text-white" onClick={this.admin}>ADMIN</div></Zoom>
+      </li>
+    
+    
             
-                {username===undefined?null:<div style={{display:'inline'}} className="mr-3">{username}</div>}
+              
                 {googleusername===undefined?null:<div style={{display:'inline'}} className="mr-3">{googleusername}</div>}
                 {googleuserimage===undefined?null:<img src={googleuserimage} width="30px" height="30px" alt="nothing found" style={{borderRadius:'50px',textAlign:'left'}} className="mr-3"/>}
             {facebookusername===undefined?null:<div style={{display:'inline'}} className="mr-3">{facebookusername}</div>}
             {facebookuserimage===undefined?null:<img src={facebookuserimage} width="30px" height="30px" alt="nothing found" style={{borderRadius:'50px',textAlign:'left'}} className="mr-3"/>}
                
-               {googleusername===undefined &&facebookusername===undefined &&username===undefined?<div style={{display:'inline'}} className="mr-3 " onClick={this.login}>Login</div>
+               {googleusername===undefined &&facebookusername===undefined &&username===undefined?  <li className="nav-item pt-3" style={{textAlign:'right'}}><div style={{display:'inline'}} className="text-white pr-1" onClick={this.login}>Login</div></li>
  
-               :<div className="text-center mr-2" style={{display:'inline'}} onClick={this.logout}>Logout</div>
+               : <li className="nav-item pt-3" style={{textAlign:'right'}}><div className="text-white" style={{display:'inline'}} onClick={this.logout}>Logout</div></li>
                 }
 
 
-                <div className="text-center mr-2" style={{display:'inline'}} onClick={this.skr}>Signup</div>  
-            </div>
+<li className="nav-item pt-3" style={{textAlign:'right'}}><div className=" text-white" style={{display:'inline'}} onClick={this.skr}>Signup</div></li>  
+        
+                </ul>
+  </div>
+</nav>
            
             <Modal
           isOpen={signup}
