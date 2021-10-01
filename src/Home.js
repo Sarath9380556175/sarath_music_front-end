@@ -706,7 +706,7 @@ this.props.history.push(`/songrequest/?email=${youremail}&&moviename=${moviename
     
           <div style={{display:'inline'}} className="mr-3 text-white" onClick={this.requestedsongs}>SONGS</div>
           
-     <div style={{display:'inline'}} className="mr-3 mt-3 text-white srh"  onClick={this.help}>HELP</div>
+     <div style={{display:'inline'}} className="mr-3 mt-3 text-white"  onClick={this.help}>HELP</div>
      </div>
             <div className="mt-3 text-center" style={{color:'white'}}>SELECT YOUR FAVOURITE LANGUAGE</div>
 <br/>
