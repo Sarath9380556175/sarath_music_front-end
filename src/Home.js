@@ -8,7 +8,6 @@ import Zoom from 'react-reveal/Zoom'
 import Bounce from 'react-reveal/Bounce'
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; 
- 
  import qs from 'query-string';
 const customStyles = {
       
@@ -60,7 +59,7 @@ class Skr extends React.Component{
             songsrequestedmails:[],
             requestedsongs:false,
             lakshmi:false,
-           images:[]
+            images:[]
 
         }
     }
@@ -71,7 +70,7 @@ componentDidMount()
     this.setState({username:skr.email})
 
     axios({
-        url:'https://tranquil-bastion-03369.herokuapp.com/mails',
+        url:'http://localhost:2077/mails',
         method:'POST',
         headers:{'Content-type':'application/json'}
     })
@@ -80,8 +79,9 @@ componentDidMount()
 
     .catch(error=>console.log(error));
 
- axios({
-        url:'https://tranquil-bastion-03369.herokuapp.com/images',
+
+    axios({
+        url:'http://localhost:2077/images',
         method:'POST',
         headers:{'Content-type':'application/json'}
     })
@@ -92,8 +92,9 @@ componentDidMount()
 
 
 
+
     axios({
-        url:'https://tranquil-bastion-03369.herokuapp.com/songsrequestedmails',
+        url:'http://localhost:2077/songsrequestedmails',
         method:'POST',
         headers:{'Content-type':'application/json'}
     })
@@ -116,7 +117,7 @@ componentDidMount()
         this.setState({name:name});
 
         axios({
-            url:'https://tranquil-bastion-03369.herokuapp.com/signupcheck',
+            url:'http://localhost:2077/signupcheck',
             method:'POST',
             headers:{'Content-type':'application/json'},
             data:
@@ -140,6 +141,7 @@ componentDidMount()
         this.setState({password:password})
 
     }
+
     signup=()=>{
 
         const {name,password,userexist}=this.state;
@@ -147,7 +149,7 @@ componentDidMount()
         if(userexist===false)
         {
             axios({
-                url:'https://tranquil-bastion-03369.herokuapp.com/signup',
+                url:'http://localhost:2077/signup',
                 method:'POST',
                 headers:{'Content-Type':'application/json'},
                 data:
@@ -213,6 +215,8 @@ responseGoogle=(response)=>{
     this.setState({googleusername:response.profileObj.name,googleuserimage:response.profileObj.imageUrl,login:false,googleuserloogedin:true})
 }
 
+
+
 responseFacebook=(response)=>{
     this.setState({facebookusername:response.name,facebookuserimage:response.picture.data.url,login:false})
     }
@@ -226,7 +230,7 @@ responseFacebook=(response)=>{
         const password=event.target.value;
 
         axios({
-            url:'https://tranquil-bastion-03369.herokuapp.com/login',
+            url:'http://localhost:2077/login',
             method:'POST',
             headers:{'Content-type':'application/json'},
             data:
@@ -248,7 +252,7 @@ const email=localStorage.getItem('useremail');
 
 
 axios({
-    url:'https://tranquil-bastion-03369.herokuapp.com/forgot',
+    url:'http://localhost:2077/forgot',
     method:'POST',
     headers:{'Content-type':'application/json'},
     data:
@@ -302,13 +306,15 @@ this.props.history.push('/forgot')
 
         const attachments=event.target.value;
 
+      
+
         this.setState({attachments:attachments})
 
     }
     notification=()=>{
         const {mails,notificationmessage,attachments}=this.state;
         axios({
-            url:'https://tranquil-bastion-03369.herokuapp.com/notifications',
+            url:'http://localhost:2077/notifications',
             method:'POST',
             headers:{'Content-type':'application/json'},
             data:
@@ -331,6 +337,8 @@ this.props.history.push('/forgot')
 
         const adminusername=event.target.value;
         this.setState({adminusername:adminusername})
+
+
     }
 
     adminpassword=(event)=>{
@@ -338,7 +346,7 @@ this.props.history.push('/forgot')
 const adminpassword=event.target.value;
 
 axios({
-    url:'https://tranquil-bastion-03369.herokuapp.com/admin',
+    url:'http://localhost:2077/admin',
     method:'POST',
     headers:{'Content-type':'application/json'},
     data:
@@ -349,7 +357,9 @@ axios({
 })
 
 .then(response=>this.setState({isadminverified:response.data.isadminverified}))
-  }
+
+
+    }
 
    
 
@@ -370,9 +380,11 @@ axios({
         this.setState({notification:isadminverified})
         alert('INVALID ADMIN DETAILS')
     }
- }
 
- ramana=()=>{
+      
+    }
+
+    ramana=()=>{
 
         const {isadminverified}=this.state;
 
@@ -388,8 +400,8 @@ axios({
     }
 
     }
- 
-   help=()=>{
+
+    help=()=>{
         this.setState({help:true})
     }
 
@@ -439,24 +451,23 @@ this.setState({songname:songname})
     songsrequest=()=>{
 
         const {youremail,moviename,songname,languageselection}=this.state;
-  this.props.history.push(`/songrequest/?email=${youremail}&&moviename=${moviename}&&songname=${songname}&&language=${languageselection}`)
+this.props.history.push(`/songrequest/?email=${youremail}&&moviename=${moviename}&&songname=${songname}&&language=${languageselection}`)
     }
 
     requestedsongs=()=>{
         this.setState({requestedsongs:true})
     }
-      requestedclose=()=>{
+    requestedclose=()=>{
         this.setState({requestedsongs:false})
     }
 
-   requested=()=>{
+    requested=()=>{
         this.setState({lakshmi:false})
     }
- 
     bujala=()=>{
         const {songsrequestedmails}=this.state;
         axios({
-            url:'https://tranquil-bastion-03369.herokuapp.com/requestedsongnotification',
+            url:'http://localhost:2077/requestedsongnotification',
             method:'POST',
             headers:{'Content-type':'application/json'},
             data:
@@ -468,15 +479,17 @@ this.setState({songname:songname})
         this.props.history.push('/thankyouss')
  
     }
- 
- render()
+    render()
     {
         const {help,images,lakshmi,requestedsongs,isadminverified,admin,notification,signup,login,facebookusername,facebookuserimage,googleuserimage,googleusername,isvaliduser,username}=this.state;
       
         return(
         <div>
          
-       
+      
+
+         
+        
            <nav className="navbar navbar-expand-md-sm-lg bg-info navbar-dark">
            {username===undefined?   <Bounce bottom cascade><img src="songimages/companylogo.png" className="mr-3" alt="Nothing Found" style={{textAlign:'left',borderRadius:'50px'}} width="50px" height="50px"/></Bounce>:<div style={{display:'inline'}} className="mr-3 text-white">{username}</div>}
   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -486,7 +499,7 @@ this.setState({songname:songname})
 
   <div className="collapse navbar-collapse" id="collapsibleNavbar">
     <ul className="navbar-nav">
-      <li className="nav-item pt-3" style={{textAlign:'right'}}>
+      <li className="nav-item pt-3 bujala" style={{textAlign:'right'}}>
       <Zoom left cascade><div style={{display:'inline'}} className="text-white" onClick={this.admin}>ADMIN</div></Zoom>
       </li>
     
@@ -498,18 +511,18 @@ this.setState({songname:songname})
             {facebookusername===undefined?null:<div style={{display:'inline'}} className="mr-3">{facebookusername}</div>}
             {facebookuserimage===undefined?null:<img src={facebookuserimage} width="30px" height="30px" alt="nothing found" style={{borderRadius:'50px',textAlign:'left'}} className="mr-3"/>}
                
-               {googleusername===undefined &&facebookusername===undefined &&username===undefined?  <li className="nav-item pt-3" style={{textAlign:'right'}}><div style={{display:'inline'}} className="text-white pr-1" onClick={this.login}>Login</div></li>
+               {googleusername===undefined &&facebookusername===undefined &&username===undefined?  <li className="nav-item pt-3 bujala" style={{textAlign:'right'}}><div style={{display:'inline'}} className="text-white pr-1" onClick={this.login}>Login</div></li>
  
-               : <li className="nav-item pt-3" style={{textAlign:'right'}}><div className="text-white" style={{display:'inline'}} onClick={this.logout}>Logout</div></li>
+               : <li className="nav-item pt-3 bujala" style={{textAlign:'right'}}><div className="text-white" style={{display:'inline'}} onClick={this.logout}>Logout</div></li>
                 }
 
 
-<li className="nav-item pt-3" style={{textAlign:'right'}}><div className=" text-white" style={{display:'inline'}} onClick={this.skr}>Signup</div></li>  
+<li className="nav-item pt-3 bujala" style={{textAlign:'right'}}><div className="text-white" style={{display:'inline'}} onClick={this.skr}>Signup</div></li>  
         
                 </ul>
   </div>
 </nav>
-           
+         
             <Modal
           isOpen={signup}
             style={customStyles} 
@@ -681,11 +694,11 @@ this.setState({songname:songname})
               
             </Modal>
 
-  
+     
             <Carousel showThumbs={false} showIndicators={false} infiniteLoop={true} autoPlay={true}>
   
          {images.length!==0?images.map((item)=>{
-             return <div >
+             return <div>
              <img src={`songimages/${item.imagename}`} className="rmr" alt="Nothing Found"   />
              <p className="legend">{item.imagetitle}</p>
          </div>
@@ -693,12 +706,8 @@ this.setState({songname:songname})
               
 </Carousel>
 
-
-
- 
-            <div  style={{textAlign:'right'}} className="mt-3">
-          
-        
+     <div  style={{textAlign:'right'}} className="mt-3">
+    
           <div style={{display:'inline'}} className="mr-3 text-white" onClick={this.requestedsongs}>SONGS</div>
           
      <div style={{display:'inline'}} className="mr-3 mt-3 text-white srh"  onClick={this.help}>HELP</div>
