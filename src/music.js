@@ -64,9 +64,9 @@ class Music extends React.Component{
     {
         const {songs,language,filtersongs,issongexist}=this.state;
         return(
-            <div>
+            <div style={{paddingTop:'80px'}}>
               
-                <form className="text-center mt-3 ml-3 mr-3" >
+                <form className="text-center mt-3 ml-3 mr-3 fixed-top " >
   <div class="input-group mb-3">
     <div class="input-group-prepend">
       <span class="input-group-text">
