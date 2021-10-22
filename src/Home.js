@@ -486,7 +486,7 @@ this.props.history.push(`/songrequest/?email=${youremail}&&moviename=${moviename
 
          
           <audio src="videos/jabili.mp3" className="hemanth" controls autoPlay loop id="allubhai"/>
-           <nav className="navbar navbar-expand-md-sm-lg bg-info navbar-dark">
+           <nav className="navbar navbar-expand-md-sm-lg bg-success navbar-dark">
            {username===undefined?   <Bounce bottom cascade><img src="songimages/companylogo.png" className="mr-3" alt="Nothing Found" style={{textAlign:'left',borderRadius:'50px'}} width="50px" height="50px"/></Bounce>:<div style={{display:'inline'}} className="mr-3 text-white">{username}</div>}
   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span className="navbar-toggler-icon"></span>
