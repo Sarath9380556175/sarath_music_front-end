@@ -14,6 +14,7 @@ import Email from './emailupdate';
 import Page from './firstpage';
 import Requestsong from './songrequest';
 import Mythanks from './mythanks';
+import Audios from './reactaudio';
 class Router extends React.Component{
     render()
     {
@@ -34,6 +35,9 @@ class Router extends React.Component{
 <Route exact path="/invalidemail" component={Email}/>
 <Route exact path="/songrequest" component={Requestsong}/>
 <Route exact path="/thankyouss" component={Mythanks}/>
+<Route exact path="/audio" component={Audios}/>
+
+
 
 
 
