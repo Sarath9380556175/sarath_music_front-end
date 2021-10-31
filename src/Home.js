@@ -487,8 +487,19 @@ this.props.history.push(`/songrequest/?email=${youremail}&&moviename=${moviename
          
       
            <nav className="navbar navbar-expand-md-sm-lg bg-success navbar-dark">
-           {username===undefined?   <Bounce bottom cascade><img src="songimages/companylogo.png" className="mr-3" alt="Nothing Found" style={{textAlign:'left',borderRadius:'50px'}} width="50px" height="50px"/></Bounce>:<div style={{display:'inline'}} className="mr-3 text-white">{username}</div>}
-  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+         {username!==undefined?<div style={{display:'inline'}} className="mr-3 text-white">{username}</div>:googleusername!==undefined?<div>
+           <img src={googleuserimage} width="30px" height="30px" alt="nothing found" style={{borderRadius:'50px',textAlign:'left'}} className="mr-3"/>
+               <div style={{display:'inline'}} className="mr-3">{googleusername}</div>
+               </div>
+               :facebookusername!==undefined?
+               <div>
+                   <img src={facebookuserimage} width="30px" height="30px" alt="nothing found" style={{borderRadius:'50px',textAlign:'left'}} className="mr-3"/>
+                   <div style={{display:'inline'}} className="mr-3">{facebookusername}</div>
+               </div>
+         
+             :<Bounce bottom cascade><img src="songimages/companylogo.png" className="mr-3" alt="Nothing Found" style={{textAlign:'left',borderRadius:'50px'}} width="50px" height="50px"/></Bounce>}
+  
+<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span className="navbar-toggler-icon"></span>
   </button>
 
@@ -502,11 +513,6 @@ this.props.history.push(`/songrequest/?email=${youremail}&&moviename=${moviename
     
             
               
-                {googleusername===undefined?null:<div style={{display:'inline'}} className="mr-3">{googleusername}</div>}
-                {googleuserimage===undefined?null:<img src={googleuserimage} width="30px" height="30px" alt="nothing found" style={{borderRadius:'50px',textAlign:'left'}} className="mr-3"/>}
-            {facebookusername===undefined?null:<div style={{display:'inline'}} className="mr-3">{facebookusername}</div>}
-            {facebookuserimage===undefined?null:<img src={facebookuserimage} width="30px" height="30px" alt="nothing found" style={{borderRadius:'50px',textAlign:'left'}} className="mr-3"/>}
-               
                {googleusername===undefined &&facebookusername===undefined &&username===undefined?  <li className="nav-item pt-3 bujala" style={{textAlign:'right'}}><div style={{display:'inline'}} className="text-white pr-1" onClick={this.login}>Login</div></li>
  
                : <li className="nav-item pt-3 bujala" style={{textAlign:'right'}}><div className="text-white" style={{display:'inline'}} onClick={this.logout}>Logout</div></li>
