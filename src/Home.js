@@ -563,7 +563,7 @@ this.props.history.push(`/songrequest/?email=${youremail}&&moviename=${moviename
 <div className="text-center pb-2 text-primary">Login Form</div>
     <input type="email" name="email" placeholder="E-MAIL" onChange={this.names} required/><br/><br/>
     <input type="password" name="pass" placeholder="Password" onChange={this.pass} required/>&nbsp;&nbsp;
-    {isvaliduser===true?<div style={{display:'inline'}}>&#10004;</div>:null}
+      {isvaliduser===true?<div style={{display:'inline'}}>&#10004;</div>:isvaliduser===false?<div style={{display:'inline'}}>&#10060;</div>:null}
     <br/><br/>
     <button className="btn btn-success btn-sm">Submit</button><br/>
     <div onClick={this.forgot} className="btn btn-link">Forgot Password</div><br/><br/>
