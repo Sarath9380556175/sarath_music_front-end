@@ -264,27 +264,27 @@ this.props.history.push('/forgot')
 
     telugu=()=>{
 
-        this.props.history.push('/music/?language=TELUGU')
+        this.props.history.push('/audio/?language=TELUGU')
     }
 
     hindi=()=>{
 
-        this.props.history.push('/music/?language=HINDI')
+        this.props.history.push('/audio/?language=HINDI')
     }
 
     tamil=()=>{
 
-        this.props.history.push('/music/?language=TAMIL')
+        this.props.history.push('/audio/?language=TAMIL')
     }
 
     malayalam=()=>{
 
-        this.props.history.push('/music/?language=MALAYALAM')
+        this.props.history.push('/audio/?language=MALAYALAM')
     }
 
     kannada=()=>{
 
-        this.props.history.push('/music/?language=KANNADA')
+        this.props.history.push('/audio/?language=KANNADA')
     }
 
     admin=()=>{
