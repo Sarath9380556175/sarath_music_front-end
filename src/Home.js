@@ -487,18 +487,16 @@ this.props.history.push(`/songrequest/?email=${youremail}&&moviename=${moviename
          
       
            <nav className="navbar navbar-expand-md-sm-lg bg-success navbar-dark">
-         {username!==undefined?<div style={{display:'inline'}} className="mr-3 text-white">{username}</div>:googleusername!==undefined?<div>
+         {username!==undefined?<div style={{display:'inline'}} className="mr-2 text-white">{username}</div>:googleusername!==undefined?<div>
            <img src={googleuserimage} width="30px" height="30px" alt="nothing found" style={{borderRadius:'50px',textAlign:'left'}} className="mr-3"/>
-               <div style={{display:'inline'}} className="mr-3">{googleusername}</div>
+               <div style={{display:'inline'}} className="mr-2 pt-1 text-white">{googleusername}</div>
                </div>
                :facebookusername!==undefined?
                <div>
                    <img src={facebookuserimage} width="30px" height="30px" alt="nothing found" style={{borderRadius:'50px',textAlign:'left'}} className="mr-3"/>
-                   <div style={{display:'inline'}} className="mr-3">{facebookusername}</div>
+                   <div style={{display:'inline'}} className="mr-2 pt-1 text-white ">{facebookusername}</div>
                </div>
-         
-             :<Bounce bottom cascade><img src="songimages/companylogo.png" className="mr-3" alt="Nothing Found" style={{textAlign:'left',borderRadius:'50px'}} width="50px" height="50px"/></Bounce>}
-  
+           :<Bounce bottom cascade><img src="songimages/companylogo.png" className="mr-3" alt="Nothing Found" style={{textAlign:'left',borderRadius:'50px'}} width="50px" height="50px"/></Bounce>}
 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span className="navbar-toggler-icon"></span>
   </button>
