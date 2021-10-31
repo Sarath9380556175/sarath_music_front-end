@@ -28,7 +28,7 @@ class Audios extends React.Component{
 
         this.setState({language:skr.language})
       axios({
-          url:'http://localhost:2077/findmusicbylanguage',
+          url:'https://tranquil-bastion-03369.herokuapp.com/findmusicbylanguage',
           method:'POST',
           headers:{'Content-type':'application/json'},
           data:
@@ -49,7 +49,7 @@ class Audios extends React.Component{
        
      
         axios({
-            url:'http://localhost:2077/findbysongname',
+            url:'https://tranquil-bastion-03369.herokuapp.com/findbysongname',
             method:'POST',
             headers:{'Content-type':'application/json'},
             data:
