@@ -10,7 +10,7 @@ class Thanks extends React.Component{
         return(
             <div>
                 <div className="text-white ml-3 mt-2" onClick={this.back}>BACK</div>
-            <Zoom cascade bottom><div className="mt-3 text-center text-secondary">
+            <Zoom cascade bottom><div className="mt-3 text-center" style={{color:'yellow'}}>
             Unsuccessfull
         </div></Zoom>
         </div>
