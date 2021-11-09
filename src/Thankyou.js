@@ -26,7 +26,7 @@ class Thankyou extends React.Component{
         return(
             <div>
                 <div className="mt-3 ml-2 text-white" onClick={this.back}>BACK</div>
-<Zoom cascade bottom><div className="mt-3 text-center text-primary">
+<Zoom cascade bottom><div className="mt-3 text-center" style={{color:'yellow'}}>
                 Successfull
             </div></Zoom>
             </div>
