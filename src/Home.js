@@ -441,7 +441,7 @@ this.setState({songname:songname})
 
     mkp=()=>{
         document.getElementById("hemanth").style.border="3px solid green";
-        document.getElementById("hemanth").style.color="yellow";
+        document.getElementById("hemanth").style.color="black";
     }
 
     songsrequest=()=>{
