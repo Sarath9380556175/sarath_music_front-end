@@ -55,7 +55,9 @@ class Skr extends React.Component{
             songsrequestedmails:[],
             requestedsongs:false,
             lakshmi:false,
-            images:[]
+            images:[],
+           useremail:false,
+            myusermail:undefined
 
         }
     }
@@ -243,23 +245,7 @@ responseFacebook=(response)=>{
     }
 
     forgot=()=>{
-const email=localStorage.getItem('useremail');
-
-
-
-axios({
-    url:'https://tranquil-bastion-03369.herokuapp.com/forgot',
-    method:'POST',
-    headers:{'Content-type':'application/json'},
-    data:
-    {
-       email:email
-    }
-})
-
-this.props.history.push('/forgot')
-
-
+this.setState({useremail:true,login:false})
     }
 
     telugu=()=>{
@@ -475,9 +461,30 @@ this.props.history.push(`/songrequest/?email=${youremail}&&moviename=${moviename
         this.props.history.push('/thankyouss')
  
     }
+ 
+   pushpa=()=>{
+       this.props.history.push('/audio')
+   }
+
+   emailclose=()=>{
+       this.setState({useremail:false})
+   }
+ 
+  usermail=(event)=>{
+       const usermail=event.target.value;
+       this.setState({myusermail:usermail})
+   }
+
+   forgotpassword=()=>{
+
+    const {myusermail}=this.state;
+
+   this.props.history.push(`/forgot/?useremail=${myusermail}`)
+
+   }
     render()
     {
-        const {help,images,lakshmi,requestedsongs,isadminverified,admin,notification,signup,login,facebookusername,facebookuserimage,googleuserimage,googleusername,isvaliduser,username}=this.state;
+        const {useremail,help,images,lakshmi,requestedsongs,isadminverified,admin,notification,signup,login,facebookusername,facebookuserimage,googleuserimage,googleusername,isvaliduser,username}=this.state;
       
         return(
         <div>
@@ -572,6 +579,22 @@ this.props.history.push(`/songrequest/?email=${youremail}&&moviename=${moviename
     <button className="btn btn-success btn-sm">Submit</button><br/>
     <div onClick={this.forgot} className="btn btn-link">Forgot Password</div><br/><br/>
                 </form>
+              
+            </Modal>
+
+
+            <Modal
+          isOpen={useremail}
+            style={customStyles}
+            >
+                 
+                 <div style={{textAlign:'right'}} onClick={this.emailclose}>close</div>
+        <form className="text-center" onSubmit={this.forgotpassword}>
+     
+<br/>
+    <input type="email" name="useremail" placeholder="USER EMAIL" onChange={this.usermail} required/><br/><br/>
+    <button className="btn btn-success btn-sm">Submit</button><br/>
+       </form>
               
             </Modal>
 
