@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React from 'react';
-
+import qs from 'query-string';
 class Newpasword extends React.Component{
 
     constructor()
@@ -9,13 +9,19 @@ class Newpasword extends React.Component{
 
         this.state=
         {
-            Newpasword:undefined
+            Newpasword:undefined,
+              email:undefined
 
         }
     }
     componentDidMount()
     {
         const otp=sessionStorage.getItem('otp');
+        
+           const tkr=qs.parse(this.props.location.search)
+
+        this.setState({email:tkr.email})
+        
         axios({
             url:'https://tranquil-bastion-03369.herokuapp.com/deleteotp',
             method:'POST',
@@ -31,21 +37,10 @@ class Newpasword extends React.Component{
 
     update=()=>{
 
-        const {Newpasword}=this.state;
+         const {Newpasword,email}=this.state;
 
-        const email=localStorage.getItem('useremail');
-        axios({
-            url:'https://tranquil-bastion-03369.herokuapp.com/updatepassword',
-            method:'POST',
-            headers:{'Content-type':'application/json'},
-            data:
-            {
-                email:email,
-                password:Newpasword
-            }
-        })
 
-        this.props.history.push('/passwordupdated');
+        this.props.history.push(`/passwordupdated/?newpassword=${Newpasword}&&email=${email}`);
     }
 
     Newpasword=(event)=>{
