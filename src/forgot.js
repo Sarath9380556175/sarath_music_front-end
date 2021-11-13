@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React from 'react';
+import qs from 'query-string';
 
 class Forgot extends React.Component{
     constructor()
@@ -9,6 +10,22 @@ class Forgot extends React.Component{
         {
             isotpvalid:undefined
         }
+    }
+    
+     componentDidMount()
+    {
+const skr=qs.parse(this.props.location.search)
+
+axios({
+    url:'http://localhost:2077/forgot',
+    method:'POST',
+    headers:{'Content-type':'application/json'},
+    data:
+    {
+       email:skr.useremail
+    }
+})
+
     }
 
     otpinput=(event)=>{
