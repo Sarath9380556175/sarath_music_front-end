@@ -8,13 +8,16 @@ class Forgot extends React.Component{
         super();
         this.state=
         {
-            isotpvalid:undefined
+            isotpvalid:undefined,
+             email:undefined
         }
     }
     
      componentDidMount()
     {
 const skr=qs.parse(this.props.location.search)
+
+this.setState({email:skr.useremail})
 
 axios({
     url:'http://localhost:2077/forgot',
@@ -51,11 +54,11 @@ axios({
     }
 
     skr=()=>{
-        const {isotpvalid}=this.state;
+        const {isotpvalid,email}=this.state;
 
     if(isotpvalid===true)
     {
-        this.props.history.push('/newpassword')
+        this.props.history.push(`/newpassword/?email=${email}`)
     }
     else if(isotpvalid===false){
         alert("OTP IS INVALID");
