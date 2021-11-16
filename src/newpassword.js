@@ -22,7 +22,7 @@ class Newpasword extends React.Component{
 
         this.setState({email:tkr.email})
         axios({
-            url:'http://localhost:2077/deleteotp',
+            url:'https://tranquil-bastion-03369.herokuapp.com/deleteotp',
             method:'POST',
             headers:{'Content-type':'application/json'},
             data:
