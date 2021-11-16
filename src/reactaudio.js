@@ -18,7 +18,11 @@ class Audios extends React.Component{
             language:undefined,
             issongexist:undefined,
             moviesong:[],
-            ismovieexist:undefined
+            ismovieexist:undefined,
+              musicsongs:[],
+            isdirectorexist:undefined,
+            singersogs:[],
+            issingerexist:undefined
           
         }
     }
@@ -77,6 +81,36 @@ class Audios extends React.Component{
         .then(response=>this.setState({filtersongs:response.data.songnames,issongexist:response.data.issongexist}))
      
         .catch()
+        
+        
+         axios({
+          url:'https://tranquil-bastion-03369.herokuapp.com/findbymusicdirector',
+          method:'POST',
+          headers:{'Content-type':'application/json'},
+          data:
+          {
+            musicdirector:name
+          }
+      })
+   
+      .then(response=>this.setState({musicsongs:response.data.musicdirector,isdirectorexist:response.data.isdirectorexist}))
+   
+      .catch()
+
+      axios({
+        url:'https://tranquil-bastion-03369.herokuapp.com/findbysinger',
+        method:'POST',
+        headers:{'Content-type':'application/json'},
+        data:
+        {
+          singername:name
+        }
+    })
+ 
+    .then(response=>this.setState({singersogs:response.data.singernames,issingerexist:response.data.issingerexist}))
+ 
+    .catch()
+
      
         
          }
@@ -87,7 +121,7 @@ class Audios extends React.Component{
    
     render()
     {
-      const {songs,language,filtersongs,issongexist,moviesong,ismovieexist}=this.state;
+      const {songs,language,filtersongs,issongexist,moviesong,ismovieexist,musicsongs,isdirectorexist,singersogs,issingerexist}=this.state;
    
         return(
          
@@ -187,6 +221,94 @@ return <div>
 
 
 </div>
+
+
+:musicsongs.length!==0 && isdirectorexist===true?<div className="container-fluid text-center">
+          
+{musicsongs.map((item)=>{
+return  <Zoom top cascade><div  >
+<img src={`../songimages/${item.image}`}  alt="NOTHING FOUND" style={{borderRadius:'50px',width:"40px" ,height:"40px",display:'inline-block'}}/>
+<Player>
+    <Audio crossOrigin="" Poster="../songimages/chellama.jpg" >
+      <source
+        data-src={`../videos/${item.audiopath}`}
+        
+        type="audio/mp3"
+      />
+      
+       
+    </Audio>
+    <br/>
+
+    {/* We've replaced the `<Ui />` component. */}
+    {/* We can turn off any features we don't want via properties. */}
+    <DefaultUi noClickToPlay>
+      {/* We can place our own UI components here to extend the default UI. */}
+    </DefaultUi>
+    
+  </Player>
+
+  <div style={{color:'white'}}>MOVIE NAME:{item.moviename}</div>
+<div style={{color:'white'}}>SONG NAME:{item.songname}</div>
+<div style={{color:'white'}}>MUSIC:{item.music}</div>
+<div style={{display:'inline',color:'yellow'}}>SINGERS:</div>&nbsp;
+{item.singers.map((item)=>{
+return <div>
+<div style={{color:'white',display:'inline'}}>{item}&nbsp;</div>
+<br/> 
+</div>
+})}
+<br/>  
+</div>
+</Zoom>
+})}
+
+
+</div>
+
+:singersogs.length!==0 && issingerexist===true?<div className="container-fluid text-center">
+          
+{singersogs.map((item)=>{
+return  <Zoom top cascade><div  >
+<img src={`../songimages/${item.image}`}  alt="NOTHING FOUND" style={{borderRadius:'50px',width:"40px" ,height:"40px",display:'inline-block'}}/>
+<Player>
+    <Audio crossOrigin="" Poster="../songimages/chellama.jpg" >
+      <source
+        data-src={`../videos/${item.audiopath}`}
+        
+        type="audio/mp3"
+      />
+      
+       
+    </Audio>
+    <br/>
+
+    {/* We've replaced the `<Ui />` component. */}
+    {/* We can turn off any features we don't want via properties. */}
+    <DefaultUi noClickToPlay>
+      {/* We can place our own UI components here to extend the default UI. */}
+    </DefaultUi>
+    
+  </Player>
+
+  <div style={{color:'white'}}>MOVIE NAME:{item.moviename}</div>
+<div style={{color:'white'}}>SONG NAME:{item.songname}</div>
+<div style={{color:'white'}}>MUSIC:{item.music}</div>
+<div style={{display:'inline',color:'yellow'}}>SINGERS:</div>&nbsp;
+{item.singers.map((item)=>{
+return <div>
+<div style={{color:'white',display:'inline'}}>{item}&nbsp;</div>
+<br/> 
+</div>
+})}
+<br/>  
+</div>
+</Zoom>
+})}
+
+
+</div>
+
 
 :songs.length!==0?<div className="container-fluid text-center">
           
