@@ -48,7 +48,7 @@ var options = {
   
 
 axios({
-    url:'http://localhost:2077/forgot',
+    url:'https://tranquil-bastion-03369.herokuapp.com/forgot',
     method:'POST',
     headers:{'Content-type':'application/json'},
     data:
@@ -66,7 +66,7 @@ axios({
         const otp=event.target.value;
 
         axios({
-            url:'http://localhost:2077/isotpvalid',
+            url:'https://tranquil-bastion-03369.herokuapp.com/isotpvalid',
             method:'POST',
             headers:{'Content-type':'application/json'},
             data:
@@ -98,7 +98,7 @@ axios({
         const {email,mail}=this.state;
 
         axios({
-            url:'http://localhost:2077/forgot',
+            url:'https://tranquil-bastion-03369.herokuapp.com/forgot',
             method:'POST',
             headers:{'Content-type':'application/json'},
             data:
