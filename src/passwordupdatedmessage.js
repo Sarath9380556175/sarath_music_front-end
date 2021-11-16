@@ -10,7 +10,7 @@ class Password extends React.Component{
         const rmr=qs.parse(this.props.location.search)
 
         axios({
-            url:'http://localhost:2077/updatepassword',
+            url:'https://tranquil-bastion-03369.herokuapp.com/updatepassword',
             method:'POST',
             headers:{'Content-type':'application/json'},
             data:
