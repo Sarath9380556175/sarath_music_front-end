@@ -320,7 +320,7 @@ return <div>
 :songs.length!==0?<div className="container-fluid text-center">
           
 {songs.map((item)=>{
-return  <div  >
+return <Zoom top cascade> <div  >
 <img src={`../songimages/${item.image}`}  alt="NOTHING FOUND" style={{borderRadius:'50px',width:"40px" ,height:"40px",display:'inline-block'}}/>
 <Player>
     <Audio crossOrigin="" Poster="../songimages/chellama.jpg" >
@@ -354,7 +354,7 @@ return <div>
 })}
 <br/>  
 </div>
-
+</Zoom>
 })}
 
 
