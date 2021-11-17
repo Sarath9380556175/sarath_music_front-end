@@ -387,7 +387,7 @@ return <div>
     <div className="pagination justify-content-center">
 {pagecounts.length!==0 ? pagecounts.map(item=>{
 
-    return  <li className="page-item"><a className="btn btn-outline-success text-dark" className="page-link"  style={{display:'inline-block'}} onClick={()=>this.skr(item)}>{item}</a></li>
+    return  <li className="page-item"><p className="btn btn-outline-success text-dark" className="page-link"  style={{display:'inline-block'}} onClick={()=>this.skr(item)}>{item}</p></li>
 
 }) 
 
