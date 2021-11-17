@@ -22,7 +22,8 @@ class Audios extends React.Component{
               musicsongs:[],
             isdirectorexist:undefined,
             singersogs:[],
-            issingerexist:undefined
+            issingerexist:undefined,
+            searchnames:undefined
           
         }
     }
@@ -52,7 +53,13 @@ class Audios extends React.Component{
     songname=(event)=>{
        
         const name=event.target.value;
-     
+        
+          this.setState({searchnames:name})
+    }
+    
+    search=()=>{
+        
+          const {searchnames}=this.state;
 
         axios({
           url:'https://tranquil-bastion-03369.herokuapp.com/findbymoviename',
@@ -60,7 +67,7 @@ class Audios extends React.Component{
           headers:{'Content-type':'application/json'},
           data:
           {
-            moviename:name
+            moviename:searchnames
           }
       })
    
@@ -74,7 +81,7 @@ class Audios extends React.Component{
             headers:{'Content-type':'application/json'},
             data:
             {
-                songname:name
+                songname:searchnames
             }
         })
      
@@ -89,7 +96,7 @@ class Audios extends React.Component{
           headers:{'Content-type':'application/json'},
           data:
           {
-            musicdirector:name
+            musicdirector:searchnames
           }
       })
    
@@ -103,7 +110,7 @@ class Audios extends React.Component{
         headers:{'Content-type':'application/json'},
         data:
         {
-          singername:name
+          singername:searchnames
         }
     })
  
@@ -130,7 +137,7 @@ class Audios extends React.Component{
   <div class="input-group mb-3">
     <div class="input-group-prepend">
       <span class="input-group-text">
-          <span className="fas fa-search"></span>
+          <span className="fas fa-search" onClick={this.search}></span>
       </span>
     </div>
     <input type="text" class="form-control " placeholder="SONG NAMES OR MOVIE NAMES"  onChange={this.songname}/>
