@@ -23,7 +23,8 @@ class Audios extends React.Component{
             isdirectorexist:undefined,
             singersogs:[],
             issingerexist:undefined,
-            searchnames:undefined
+            searchnames:undefined,
+              pagecounts:[]
           
         }
     }
@@ -44,7 +45,7 @@ class Audios extends React.Component{
           }
       })
 
-      .then(response=>this.setState({songs:response.data.music}))
+      .then(response=>this.setState({songs:response.data.music,pagecounts:response.data.pagecounts}))
 
       .catch()
     }
@@ -122,13 +123,33 @@ class Audios extends React.Component{
         
          }
 
+      skr=(number)=>{
+
+          const {language}=this.state;
+
+          axios({
+            url:'https://tranquil-bastion-03369.herokuapp.com/findmusicbylanguage',
+            method:'POST',
+            headers:{'Content-type':'application/json'},
+            data:
+            {
+              language:language,
+              page:number
+
+            }
+        })
+  
+        .then(response=>this.setState({songs:response.data.music}))
+  
+        .catch()
+         }
 
 
 
    
     render()
     {
-      const {songs,language,filtersongs,issongexist,moviesong,ismovieexist,musicsongs,isdirectorexist,singersogs,issingerexist}=this.state;
+      const {pagecounts,songs,language,filtersongs,issongexist,moviesong,ismovieexist,musicsongs,isdirectorexist,singersogs,issingerexist}=this.state;
    
         return(
          
@@ -362,7 +383,19 @@ return <div>
 
 :<Zoom><div className="mt-3 text-white text-center">SORRY NO SONGS FOUND IN {language} </div></Zoom>}
 
+<div>
+    <div className="pagination justify-content-center">
+{pagecounts.length!==0 ? pagecounts.map(item=>{
 
+    return  <li className="page-item"><a className="btn btn-outline-success text-dark" className="page-link"  style={{display:'inline-block'}} onClick={()=>this.skr(item)}>{item}</a></li>
+
+}) 
+
+
+
+:null}
+</div>
+</div>
     
             </div>
         )
