@@ -19,12 +19,16 @@ class Audios extends React.Component{
             issongexist:undefined,
             moviesong:[],
             ismovieexist:undefined,
-              musicsongs:[],
+            musicsongs:[],
             isdirectorexist:undefined,
             singersogs:[],
             issingerexist:undefined,
             searchnames:undefined,
-              pagecounts:[]
+            pagecounts:[],
+            songnamepagecounts:[],
+            moviepagecounts:[],
+            musicpagecounts:[],
+            singerpagecounts:[]
           
         }
     }
@@ -36,7 +40,7 @@ class Audios extends React.Component{
 
         this.setState({language:skr.language})
       axios({
-          url:'https://tranquil-bastion-03369.herokuapp.com/findmusicbylanguage',
+          url:'http://localhost:2077/findmusicbylanguage',
           method:'POST',
           headers:{'Content-type':'application/json'},
           data:
@@ -50,20 +54,28 @@ class Audios extends React.Component{
       .catch()
     }
 
+
+  
+
+    
     
     songname=(event)=>{
        
-        const name=event.target.value;
-        
-          this.setState({searchnames:name})
-    }
     
-    search=()=>{
-        
-          const {searchnames}=this.state;
 
+        const name=event.target.value;
+
+    
+        this.setState({searchnames:name})
+
+     
+    }
+
+    search=()=>{
+
+      const {searchnames}=this.state;
         axios({
-          url:'https://tranquil-bastion-03369.herokuapp.com/findbymoviename',
+          url:'http://localhost:2077/findbymoviename',
           method:'POST',
           headers:{'Content-type':'application/json'},
           data:
@@ -72,12 +84,12 @@ class Audios extends React.Component{
           }
       })
    
-      .then(response=>this.setState({moviesong:response.data.moviesongs,ismovieexist:response.data.ismovieexist}))
+      .then(response=>this.setState({moviesong:response.data.moviesongs,ismovieexist:response.data.ismovieexist,moviepagecounts:response.data.pagecounts}))
    
       .catch()
      
         axios({
-            url:'https://tranquil-bastion-03369.herokuapp.com/findbysongname',
+            url:'http://localhost:2077/findbysongname',
             method:'POST',
             headers:{'Content-type':'application/json'},
             data:
@@ -86,13 +98,14 @@ class Audios extends React.Component{
             }
         })
      
-        .then(response=>this.setState({filtersongs:response.data.songnames,issongexist:response.data.issongexist}))
+        .then(response=>this.setState({filtersongs:response.data.songnames,issongexist:response.data.issongexist,songnamepagecounts:response.data.pagecounts}))
      
         .catch()
-        
-        
-         axios({
-          url:'https://tranquil-bastion-03369.herokuapp.com/findbymusicdirector',
+
+
+
+        axios({
+          url:'http://localhost:2077/findbymusicdirector',
           method:'POST',
           headers:{'Content-type':'application/json'},
           data:
@@ -101,12 +114,12 @@ class Audios extends React.Component{
           }
       })
    
-      .then(response=>this.setState({musicsongs:response.data.musicdirector,isdirectorexist:response.data.isdirectorexist}))
+      .then(response=>this.setState({musicsongs:response.data.musicdirector,isdirectorexist:response.data.isdirectorexist,musicpagecounts:response.data.pagecounts}))
    
       .catch()
 
       axios({
-        url:'https://tranquil-bastion-03369.herokuapp.com/findbysinger',
+        url:'http://localhost:2077/findbysinger',
         method:'POST',
         headers:{'Content-type':'application/json'},
         data:
@@ -115,41 +128,134 @@ class Audios extends React.Component{
         }
     })
  
-    .then(response=>this.setState({singersogs:response.data.singernames,issingerexist:response.data.issingerexist}))
+    .then(response=>this.setState({singersogs:response.data.singernames,issingerexist:response.data.issingerexist,singerpagecounts:response.data.pagecounts}))
  
     .catch()
 
-     
-        
+
+   
+
          }
 
-      skr=(number)=>{
+         skr=(number)=>{
 
           const {language}=this.state;
 
-          axios({
-            url:'https://tranquil-bastion-03369.herokuapp.com/findmusicbylanguage',
-            method:'POST',
-            headers:{'Content-type':'application/json'},
-            data:
-            {
-              language:language,
-              page:number
-
-            }
-        })
+         
+            axios({
+              url:'http://localhost:2077/findmusicbylanguage',
+              method:'POST',
+              headers:{'Content-type':'application/json'},
+              data:
+              {
+                language:language,
+                page:number
   
-        .then(response=>this.setState({songs:response.data.music}))
-  
-        .catch()
-         }
+              }
+          })
+    
+          .then(response=>this.setState({songs:response.data.music}))
 
+          .catch()
+          
 
+          
+           
+             
 
-   
+          }
+
+        
+          songpages=(songpagenumber)=>{
+const {searchnames}=this.state;
+            axios({
+              url:'http://localhost:2077/findbysongname',
+              method:'POST',
+              headers:{'Content-type':'application/json'},
+              data:
+              {
+                  songname:searchnames,
+                  page:songpagenumber
+              }
+          })
+       
+          .then(response=>this.setState({filtersongs:response.data.songnames,issongexist:response.data.issongexist}))
+       
+          .catch()
+            
+          }
+     
+
+          
+          moviepages=(pagenumber)=>{
+            const {searchnames}=this.state;
+            axios({
+              url:'http://localhost:2077/findbymoviename',
+              method:'POST',
+              headers:{'Content-type':'application/json'},
+              data:
+              {
+                moviename:searchnames,
+                page:pagenumber
+
+              }
+          })
+       
+          .then(response=>this.setState({moviesong:response.data.moviesongs,ismovieexist:response.data.ismovieexist,moviepagecounts:response.data.pagecounts}))
+       
+          .catch()
+                      }
+                 
+
+                      
+                      
+          musicpages=(songpagenumber)=>{
+            const {searchnames}=this.state;
+                        axios({
+                          url:'http://localhost:2077/findbymusicdirector',
+                          method:'POST',
+                          headers:{'Content-type':'application/json'},
+                          data:
+                          {
+                            musicdirector:searchnames,
+                              page:songpagenumber
+                          }
+                      })
+                   
+                      .then(response=>this.setState({filtersongs:response.data.musicdirector,issongexist:response.data.isdirectorexist}))
+                   
+                      .catch()
+                        
+                      }
+                 
+
+                      
+                      
+          singerpages=(songpagenumber)=>{
+            const {searchnames}=this.state;
+                        axios({
+                          url:'http://localhost:2077/findbysinger',
+                          method:'POST',
+                          headers:{'Content-type':'application/json'},
+                          data:
+                          {
+                            singername:searchnames,
+                              page:songpagenumber
+                          }
+                      })
+                   
+                      .then(response=>this.setState({filtersongs:response.data.singernames,issongexist:response.data.issingerexist}))
+                   
+                      .catch()
+                        
+                      }
+                 
+            
+       
+        
     render()
     {
-      const {pagecounts,songs,language,filtersongs,issongexist,moviesong,ismovieexist,musicsongs,isdirectorexist,singersogs,issingerexist}=this.state;
+      const { pagecounts,songnamepagecounts,moviepagecounts,musicpagecounts,singerpagecounts, songs,language,filtersongs,issongexist,moviesong,ismovieexist,musicsongs,isdirectorexist,singersogs,issingerexist}=this.state;
    
         return(
          
@@ -250,7 +356,6 @@ return <div>
 
 </div>
 
-
 :musicsongs.length!==0 && isdirectorexist===true?<div className="container-fluid text-center">
           
 {musicsongs.map((item)=>{
@@ -341,7 +446,7 @@ return <div>
 :songs.length!==0?<div className="container-fluid text-center">
           
 {songs.map((item)=>{
-return <Zoom top cascade> <div  >
+return  <Zoom top cascade><div  >
 <img src={`../songimages/${item.image}`}  alt="NOTHING FOUND" style={{borderRadius:'50px',width:"40px" ,height:"40px",display:'inline-block'}}/>
 <Player>
     <Audio crossOrigin="" Poster="../songimages/chellama.jpg" >
@@ -379,13 +484,15 @@ return <div>
 })}
 
 
+
 </div>
 
 :<Zoom><div className="mt-3 text-white text-center">SORRY NO SONGS FOUND IN {language} </div></Zoom>}
 
+<br/>
 <div>
     <div className="pagination justify-content-center">
-{pagecounts.length!==0 ? pagecounts.map(item=>{
+{pagecounts.length!==0 &&songnamepagecounts.length===0 &&moviepagecounts.length===0&&musicpagecounts.length===0&&singerpagecounts.length===0? pagecounts.map(item=>{
 
     return  <li className="page-item"><p  className="page-link"  style={{display:'inline-block'}} onClick={()=>this.skr(item)}>{item}</p></li>
 
@@ -394,6 +501,70 @@ return <div>
 
 
 :null}
+
+</div>
+</div>
+
+<div>
+    <div className="pagination justify-content-center">
+{songnamepagecounts.length!==0 ? songnamepagecounts.map(item=>{
+
+    return  <li className="page-item"><p  className="page-link"  style={{display:'inline-block'}} onClick={()=>this.songpages(item)}>{item}</p></li>
+
+}) 
+
+
+
+:null}
+
+</div>
+</div>
+
+
+<div>
+    <div className="pagination justify-content-center">
+{moviepagecounts.length!==0 ? moviepagecounts.map(item=>{
+
+    return  <li className="page-item"><p  className="page-link"  style={{display:'inline-block'}} onClick={()=>this.moviepages(item)}>{item}</p></li>
+
+}) 
+
+
+
+:null}
+
+</div>
+</div>
+
+
+<div>
+    <div className="pagination justify-content-center">
+{musicpagecounts.length!==0 ? musicpagecounts.map(item=>{
+
+    return  <li className="page-item"><p  className="page-link"  style={{display:'inline-block'}} onClick={()=>this.musicpages(item)}>{item}</p></li>
+
+}) 
+
+
+
+:null}
+
+</div>
+</div>
+
+
+<div>
+    <div className="pagination justify-content-center">
+{singerpagecounts.length!==0 ? singerpagecounts.map(item=>{
+
+    return  <li className="page-item"><p  className="page-link"  style={{display:'inline-block'}} onClick={()=>this.singerpages(item)}>{item}</p></li>
+
+}) 
+
+
+
+:null}
+
 </div>
 </div>
     
