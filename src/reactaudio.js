@@ -201,6 +201,7 @@ const {searchnames,language}=this.state;
               data:
               {
                 moviename:searchnames,
+                    language:language,
                 page:pagenumber
 
               }
