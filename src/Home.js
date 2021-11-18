@@ -816,7 +816,7 @@ const {songsrequestedmails,requestedmails}=this.state;
           
      <div style={{display:'inline'}} className="mr-3 mt-3 text-white srh"  onClick={this.help}>HELP</div>
      </div>
-            <div className="mt-3 text-center" style={{color:'white'}} onClick={this.pushpa}>SELECT YOUR FAVOURITE LANGUAGE</div>
+            <div className="mt-3 text-center" style={{color:'white'}}>SELECT YOUR FAVOURITE LANGUAGE</div>
 <br/>
             <div className="text-center">
                 <div style={{display:'inline',color:'yellow'}} onClick={this.telugu}>TELUGU</div>&nbsp;&nbsp;
