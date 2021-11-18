@@ -73,14 +73,15 @@ class Audios extends React.Component{
 
     search=()=>{
 
-      const {searchnames}=this.state;
+      const {searchnames,language}=this.state;
         axios({
           url:'https://tranquil-bastion-03369.herokuapp.com/findbymoviename',
           method:'POST',
           headers:{'Content-type':'application/json'},
           data:
           {
-            moviename:searchnames
+            moviename:searchnames,
+                 language:language
           }
       })
    
@@ -94,7 +95,8 @@ class Audios extends React.Component{
             headers:{'Content-type':'application/json'},
             data:
             {
-                songname:searchnames
+                songname:searchnames,
+                   language:language
             }
         })
      
@@ -110,7 +112,8 @@ class Audios extends React.Component{
           headers:{'Content-type':'application/json'},
           data:
           {
-            musicdirector:searchnames
+            musicdirector:searchnames,
+                 language:language
           }
       })
    
@@ -124,7 +127,8 @@ class Audios extends React.Component{
         headers:{'Content-type':'application/json'},
         data:
         {
-          singername:searchnames
+          singername:searchnames,
+               language:language
         }
     })
  
