@@ -222,7 +222,7 @@ const {searchnames}=this.state;
                           }
                       })
                    
-                      .then(response=>this.setState({filtersongs:response.data.musicdirector,issongexist:response.data.isdirectorexist}))
+                      .then(response=>this.setState({musicsongs:response.data.musicdirector,isdirectorexist:response.data.isdirectorexist}))
                    
                       .catch()
                         
@@ -244,7 +244,7 @@ const {searchnames}=this.state;
                           }
                       })
                    
-                      .then(response=>this.setState({filtersongs:response.data.singernames,issongexist:response.data.issingerexist}))
+                      .then(response=>this.setState({singersogs:response.data.singernames,issingerexist:response.data.issingerexist}))
                    
                       .catch()
                         
