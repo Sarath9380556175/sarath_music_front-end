@@ -171,7 +171,7 @@ class Audios extends React.Component{
 
         
           songpages=(songpagenumber)=>{
-const {searchnames}=this.state;
+const {searchnames,language}=this.state;
             axios({
               url:'https://tranquil-bastion-03369.herokuapp.com/findbysongname',
               method:'POST',
@@ -179,6 +179,7 @@ const {searchnames}=this.state;
               data:
               {
                   songname:searchnames,
+                   language:language,
                   page:songpagenumber
               }
           })
@@ -192,7 +193,7 @@ const {searchnames}=this.state;
 
           
           moviepages=(pagenumber)=>{
-            const {searchnames}=this.state;
+            const {searchnames,language}=this.state;
             axios({
               url:'https://tranquil-bastion-03369.herokuapp.com/findbymoviename',
               method:'POST',
@@ -214,7 +215,7 @@ const {searchnames}=this.state;
                       
                       
           musicpages=(songpagenumber)=>{
-            const {searchnames}=this.state;
+            const {searchnames,language}=this.state;
                         axios({
                           url:'https://tranquil-bastion-03369.herokuapp.com/findbymusicdirector',
                           method:'POST',
@@ -222,6 +223,7 @@ const {searchnames}=this.state;
                           data:
                           {
                             musicdirector:searchnames,
+                               language:language,
                               page:songpagenumber
                           }
                       })
@@ -236,7 +238,7 @@ const {searchnames}=this.state;
                       
                       
           singerpages=(songpagenumber)=>{
-            const {searchnames}=this.state;
+            const {searchnames,language}=this.state;
                         axios({
                           url:'https://tranquil-bastion-03369.herokuapp.com/findbysinger',
                           method:'POST',
@@ -244,6 +246,7 @@ const {searchnames}=this.state;
                           data:
                           {
                             singername:searchnames,
+                               language:language,
                               page:songpagenumber
                           }
                       })
