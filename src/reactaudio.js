@@ -29,6 +29,7 @@ class Audios extends React.Component{
             moviepagecounts:[],
             musicpagecounts:[],
             singerpagecounts:[]
+         
           
         }
     }
@@ -40,7 +41,7 @@ class Audios extends React.Component{
 
         this.setState({language:skr.language})
       axios({
-          url:'https://tranquil-bastion-03369.herokuapp.com/findmusicbylanguage',
+          url:'http://localhost:2077/findmusicbylanguage',
           method:'POST',
           headers:{'Content-type':'application/json'},
           data:
@@ -75,13 +76,14 @@ class Audios extends React.Component{
 
       const {searchnames,language}=this.state;
         axios({
-          url:'https://tranquil-bastion-03369.herokuapp.com/findbymoviename',
+          url:'http://localhost:2077/findbymoviename',
           method:'POST',
           headers:{'Content-type':'application/json'},
           data:
           {
             moviename:searchnames,
-                 language:language
+            language:language
+           
           }
       })
    
@@ -90,13 +92,13 @@ class Audios extends React.Component{
       .catch()
      
         axios({
-            url:'https://tranquil-bastion-03369.herokuapp.com/findbysongname',
+            url:'http://localhost:2077/findbysongname',
             method:'POST',
             headers:{'Content-type':'application/json'},
             data:
             {
                 songname:searchnames,
-                   language:language
+                language:language
             }
         })
      
@@ -104,16 +106,16 @@ class Audios extends React.Component{
      
         .catch()
 
-
+    
 
         axios({
-          url:'https://tranquil-bastion-03369.herokuapp.com/findbymusicdirector',
+          url:'http://localhost:2077/findbymusicdirector',
           method:'POST',
           headers:{'Content-type':'application/json'},
           data:
           {
             musicdirector:searchnames,
-                 language:language
+            language:language
           }
       })
    
@@ -122,13 +124,13 @@ class Audios extends React.Component{
       .catch()
 
       axios({
-        url:'https://tranquil-bastion-03369.herokuapp.com/findbysinger',
+        url:'http://localhost:2077/findbysinger',
         method:'POST',
         headers:{'Content-type':'application/json'},
         data:
         {
           singername:searchnames,
-               language:language
+          language:language
         }
     })
  
@@ -147,7 +149,7 @@ class Audios extends React.Component{
 
          
             axios({
-              url:'https://tranquil-bastion-03369.herokuapp.com/findmusicbylanguage',
+              url:'http://localhost:2077/findmusicbylanguage',
               method:'POST',
               headers:{'Content-type':'application/json'},
               data:
@@ -173,13 +175,13 @@ class Audios extends React.Component{
           songpages=(songpagenumber)=>{
 const {searchnames,language}=this.state;
             axios({
-              url:'https://tranquil-bastion-03369.herokuapp.com/findbysongname',
+              url:'http://localhost:2077/findbysongname',
               method:'POST',
               headers:{'Content-type':'application/json'},
               data:
               {
                   songname:searchnames,
-                   language:language,
+                  language:language,
                   page:songpagenumber
               }
           })
@@ -195,13 +197,13 @@ const {searchnames,language}=this.state;
           moviepages=(pagenumber)=>{
             const {searchnames,language}=this.state;
             axios({
-              url:'https://tranquil-bastion-03369.herokuapp.com/findbymoviename',
+              url:'http://localhost:2077/findbymoviename',
               method:'POST',
               headers:{'Content-type':'application/json'},
               data:
               {
                 moviename:searchnames,
-                    language:language,
+                language:language,
                 page:pagenumber
 
               }
@@ -218,13 +220,13 @@ const {searchnames,language}=this.state;
           musicpages=(songpagenumber)=>{
             const {searchnames,language}=this.state;
                         axios({
-                          url:'https://tranquil-bastion-03369.herokuapp.com/findbymusicdirector',
+                          url:'http://localhost:2077/findbymusicdirector',
                           method:'POST',
                           headers:{'Content-type':'application/json'},
                           data:
                           {
                             musicdirector:searchnames,
-                               language:language,
+                            language:language,
                               page:songpagenumber
                           }
                       })
@@ -241,13 +243,13 @@ const {searchnames,language}=this.state;
           singerpages=(songpagenumber)=>{
             const {searchnames,language}=this.state;
                         axios({
-                          url:'https://tranquil-bastion-03369.herokuapp.com/findbysinger',
+                          url:'http://localhost:2077/findbysinger',
                           method:'POST',
                           headers:{'Content-type':'application/json'},
                           data:
                           {
                             singername:searchnames,
-                               language:language,
+                            language:language,
                               page:songpagenumber
                           }
                       })
@@ -258,12 +260,11 @@ const {searchnames,language}=this.state;
                         
                       }
                  
-            
-       
+      
         
     render()
     {
-      const { pagecounts,songnamepagecounts,moviepagecounts,musicpagecounts,singerpagecounts, songs,language,filtersongs,issongexist,moviesong,ismovieexist,musicsongs,isdirectorexist,singersogs,issingerexist}=this.state;
+      const {pagecounts,songnamepagecounts,moviepagecounts,musicpagecounts,singerpagecounts, songs,language,filtersongs,issongexist,moviesong,ismovieexist,musicsongs,isdirectorexist,singersogs,issingerexist}=this.state;
    
         return(
          
@@ -275,7 +276,7 @@ const {searchnames,language}=this.state;
           <span className="fas fa-search" onClick={this.search}></span>
       </span>
     </div>
-    <input type="text" class="form-control " placeholder="SONG NAMES OR MOVIE NAMES"  onChange={this.songname}/>
+    <input type="text" class="form-control " placeholder="SONG NAMES OR MOVIE NAMES"    onChange={this.songname}/>
   </div>
                 <br/>
                 
@@ -307,13 +308,29 @@ const {searchnames,language}=this.state;
     
   </Player>
 
-  <div style={{color:'white'}}>MOVIE NAME:{item.moviename}</div>
-<div style={{color:'white'}}>SONG NAME:{item.songname}</div>
-<div style={{color:'white'}}>MUSIC:{item.music}</div>
-<div style={{display:'inline',color:'yellow'}}>SINGERS:</div>&nbsp;
-{item.singers.map((item)=>{
-return <div style={{color:'white',display:'inline'}}>{item}&nbsp;</div>
-})}
+ 
+  
+      <div style={{color:'white'}}>MOVIE NAME:{item.moviename[0]}</div>
+  
+  
+    
+   
+      <div style={{color:'white'}}>SONG NAME:{item.songname[0]}</div>
+  
+ 
+
+
+
+       <div style={{color:'white'}}>MUSIC:{item.music[0]}</div>
+  
+  
+
+
+    <div style={{color:'yellow'}}>SINGERS:</div>
+    
+    <div style={{color:'white'}}>{item.singers[0]}</div>
+  
+
         <br/>  
     
           </div>
@@ -346,17 +363,28 @@ return  <Zoom top cascade><div  >
     
   </Player>
 
-  <div style={{color:'white'}}>MOVIE NAME:{item.moviename}</div>
-<div style={{color:'white'}}>SONG NAME:{item.songname}</div>
-<div style={{color:'white'}}>MUSIC:{item.music}</div>
-<div style={{display:'inline',color:'yellow'}}>SINGERS:</div>&nbsp;
-{item.singers.map((item)=>{
-return <div>
-<div style={{color:'white',display:'inline'}}>{item}&nbsp;</div>
-<br/> 
-</div>
-})}
-<br/>  
+
+      <div style={{color:'white'}}>MOVIE NAME:{item.moviename[0]}</div>
+  
+ 
+    
+  
+       <div style={{color:'white'}}>SONG NAME:{item.songname[0]}</div>
+  
+ 
+
+
+
+       <div style={{color:'white'}}>MUSIC:{item.music[0]}</div>
+  
+ 
+
+
+        <div style={{color:'yellow'}}>SINGERS:</div>
+
+        <div style={{color:'white'}}>{item.singers[0]}</div>
+  
+        <br/>  
 </div>
 </Zoom>
 })}
@@ -389,17 +417,29 @@ return  <Zoom top cascade><div  >
     
   </Player>
 
-  <div style={{color:'white'}}>MOVIE NAME:{item.moviename}</div>
-<div style={{color:'white'}}>SONG NAME:{item.songname}</div>
-<div style={{color:'white'}}>MUSIC:{item.music}</div>
-<div style={{display:'inline',color:'yellow'}}>SINGERS:</div>&nbsp;
-{item.singers.map((item)=>{
-return <div>
-<div style={{color:'white',display:'inline'}}>{item}&nbsp;</div>
-<br/> 
-</div>
-})}
-<br/>  
+  
+  <div style={{color:'white'}}>MOVIE NAME:{item.moviename[0]}</div>
+  
+ 
+    
+  
+       <div style={{color:'white'}}>SONG NAME:{item.songname[0]}</div>
+  
+ 
+
+
+
+       <div style={{color:'white'}}>MUSIC:{item.music[0]}</div>
+  
+ 
+
+
+        <div style={{color:'yellow'}}>SINGERS:</div>
+
+        <div style={{color:'white'}}>{item.singers[0]}</div>
+
+  
+        <br/>  
 </div>
 </Zoom>
 })}
@@ -432,17 +472,29 @@ return  <Zoom top cascade><div  >
     
   </Player>
 
-  <div style={{color:'white'}}>MOVIE NAME:{item.moviename}</div>
-<div style={{color:'white'}}>SONG NAME:{item.songname}</div>
-<div style={{color:'white'}}>MUSIC:{item.music}</div>
-<div style={{display:'inline',color:'yellow'}}>SINGERS:</div>&nbsp;
-{item.singers.map((item)=>{
-return <div>
-<div style={{color:'white',display:'inline'}}>{item}&nbsp;</div>
-<br/> 
-</div>
-})}
-<br/>  
+  <div style={{color:'white'}}>MOVIE NAME:{item.moviename[0]}</div>
+  
+ 
+    
+  
+       <div style={{color:'white'}}>SONG NAME:{item.songname[0]}</div>
+  
+ 
+
+
+
+       <div style={{color:'white'}}>MUSIC:{item.music[0]}</div>
+  
+ 
+
+
+        <div style={{color:'yellow'}}>SINGERS:</div>
+
+        <div style={{color:'white'}}>{item.singers[0]}</div>
+
+  
+        <br/>  
+ 
 </div>
 </Zoom>
 })}
@@ -476,17 +528,28 @@ return  <Zoom top cascade><div  >
     
   </Player>
 
-  <div style={{color:'white'}}>MOVIE NAME:{item.moviename}</div>
-<div style={{color:'white'}}>SONG NAME:{item.songname}</div>
-<div style={{color:'white'}}>MUSIC:{item.music}</div>
-<div style={{display:'inline',color:'yellow'}}>SINGERS:</div>&nbsp;
-{item.singers.map((item)=>{
-return <div>
-<div style={{color:'white',display:'inline'}}>{item}&nbsp;</div>
-<br/> 
-</div>
-})}
-<br/>  
+  <div style={{color:'white'}}>MOVIE NAME:{item.moviename[0]}</div>
+  
+ 
+    
+  
+  <div style={{color:'white'}}>SONG NAME:{item.songname[0]}</div>
+
+
+
+
+
+  <div style={{color:'white'}}>MUSIC:{item.music[0]}</div>
+
+
+
+
+   <div style={{color:'yellow'}}>SINGERS:</div>
+
+   <div style={{color:'white'}}>{item.singers[0]}</div>
+
+
+   <br/>  
 </div>
 </Zoom>
 })}
