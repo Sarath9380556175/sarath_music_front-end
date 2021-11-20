@@ -41,7 +41,7 @@ class Audios extends React.Component{
 
         this.setState({language:skr.language})
       axios({
-          url:'http://localhost:2077/findmusicbylanguage',
+          url:'https://tranquil-bastion-03369.herokuapp.com/findmusicbylanguage',
           method:'POST',
           headers:{'Content-type':'application/json'},
           data:
@@ -76,7 +76,7 @@ class Audios extends React.Component{
 
       const {searchnames,language}=this.state;
         axios({
-          url:'http://localhost:2077/findbymoviename',
+          url:'https://tranquil-bastion-03369.herokuapp.com/findbymoviename',
           method:'POST',
           headers:{'Content-type':'application/json'},
           data:
@@ -92,7 +92,7 @@ class Audios extends React.Component{
       .catch()
      
         axios({
-            url:'http://localhost:2077/findbysongname',
+            url:'https://tranquil-bastion-03369.herokuapp.com/findbysongname',
             method:'POST',
             headers:{'Content-type':'application/json'},
             data:
@@ -109,7 +109,7 @@ class Audios extends React.Component{
     
 
         axios({
-          url:'http://localhost:2077/findbymusicdirector',
+          url:'https://tranquil-bastion-03369.herokuapp.com/findbymusicdirector',
           method:'POST',
           headers:{'Content-type':'application/json'},
           data:
@@ -124,7 +124,7 @@ class Audios extends React.Component{
       .catch()
 
       axios({
-        url:'http://localhost:2077/findbysinger',
+        url:'https://tranquil-bastion-03369.herokuapp.com/findbysinger',
         method:'POST',
         headers:{'Content-type':'application/json'},
         data:
@@ -149,7 +149,7 @@ class Audios extends React.Component{
 
          
             axios({
-              url:'http://localhost:2077/findmusicbylanguage',
+              url:'https://tranquil-bastion-03369.herokuapp.com/findmusicbylanguage',
               method:'POST',
               headers:{'Content-type':'application/json'},
               data:
@@ -175,7 +175,7 @@ class Audios extends React.Component{
           songpages=(songpagenumber)=>{
 const {searchnames,language}=this.state;
             axios({
-              url:'http://localhost:2077/findbysongname',
+              url:'https://tranquil-bastion-03369.herokuapp.com/findbysongname',
               method:'POST',
               headers:{'Content-type':'application/json'},
               data:
@@ -197,7 +197,7 @@ const {searchnames,language}=this.state;
           moviepages=(pagenumber)=>{
             const {searchnames,language}=this.state;
             axios({
-              url:'http://localhost:2077/findbymoviename',
+              url:'https://tranquil-bastion-03369.herokuapp.com/findbymoviename',
               method:'POST',
               headers:{'Content-type':'application/json'},
               data:
@@ -220,7 +220,7 @@ const {searchnames,language}=this.state;
           musicpages=(songpagenumber)=>{
             const {searchnames,language}=this.state;
                         axios({
-                          url:'http://localhost:2077/findbymusicdirector',
+                          url:'https://tranquil-bastion-03369.herokuapp.com/findbymusicdirector',
                           method:'POST',
                           headers:{'Content-type':'application/json'},
                           data:
@@ -243,7 +243,7 @@ const {searchnames,language}=this.state;
           singerpages=(songpagenumber)=>{
             const {searchnames,language}=this.state;
                         axios({
-                          url:'http://localhost:2077/findbysinger',
+                          url:'https://tranquil-bastion-03369.herokuapp.com/findbysinger',
                           method:'POST',
                           headers:{'Content-type':'application/json'},
                           data:
