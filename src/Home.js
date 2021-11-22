@@ -557,6 +557,14 @@ const {songsrequestedmails,requestedmails}=this.state;
  this.setState({ramcharan:mobilenumbers[ntr]})
 
    }
+      
+       pleasesignup=()=>{
+       this.setState({signup:true})
+   }
+
+   pleaselogin=()=>{
+       this.setState({login:true})
+   }
 
 
     render()
@@ -835,7 +843,7 @@ const {songsrequestedmails,requestedmails}=this.state;
                 <br/>
                 <br/>
                 <br/>
-                <br/><div className="text-center text-white">Please Signup or Login to Listen the songs</div></div>}
+                <br/>  <div className="text-center text-white">Please <div style={{display:'inline',color:'yellow'}} onClick={this.pleasesignup}>Signup</div> or <div style={{display:'inline',color:'yellow'}} onClick={this.pleaselogin} >Login</div> to Listen the songs</div></div>}}
             </div>
 
         )
