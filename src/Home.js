@@ -810,13 +810,15 @@ const {songsrequestedmails,requestedmails}=this.state;
               
 </Carousel>
 
-     <div  style={{textAlign:'right'}} className="mt-3">
+    {username!==undefined?<div  style={{textAlign:'right'}} className="mt-3">
     
           <div style={{display:'inline'}} className="mr-3 text-white" onClick={this.requestedsongs}>SONGS</div>
           
      <div style={{display:'inline'}} className="mr-3 mt-3 text-white srh"  onClick={this.help}>HELP</div>
-     </div>
-            <div className="mt-3 text-center" style={{color:'white'}}>SELECT YOUR FAVOURITE LANGUAGE</div>
+     </div>:null}
+<br/>
+     {username!==undefined?<div>
+     <div className="mt-3 text-center" style={{color:'white'}} >SELECT YOUR FAVOURITE LANGUAGE</div>
 <br/>
             <div className="text-center">
                 <div style={{display:'inline',color:'yellow'}} onClick={this.telugu}>TELUGU</div>&nbsp;&nbsp;
@@ -828,6 +830,7 @@ const {songsrequestedmails,requestedmails}=this.state;
                 <div style={{display:'inline',color:'yellow'}} onClick={this.malayalam}>MALAYALAM</div><br/><br/>
                 <div style={{display:'inline',color:'yellow'}} className="text-center" onClick={this.kannada}>KANNADA</div>
             </div>
+            </div>:<div className="text-center text-white">Please Login or Signup to Listen the songs</div>}
             </div>
 
         )
