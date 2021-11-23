@@ -561,11 +561,11 @@ return  <Zoom top cascade><div  >
 :<Zoom><div className="mt-3 text-white text-center">SORRY NO SONGS FOUND IN {language} </div></Zoom>}
 
 <br/>
-<div>
+
     <div className="pagination">
 {pagecounts.length!==0 &&songnamepagecounts.length===0 &&moviepagecounts.length===0&&musicpagecounts.length===0&&singerpagecounts.length===0? pagecounts.map(item=>{
 
-    return  <li className="page-item"><p  className="page-link"  style={{display:'inline-block'}} onClick={()=>this.skr(item)}>{item}</p></li>
+    return  <button onClick={()=>this.skr(item)}>{item}</button>
 
 }) 
 
@@ -574,13 +574,12 @@ return  <Zoom top cascade><div  >
 :null}
 
 </div>
-</div>
 
-<div>
-    <div className="pagination justify-content-center">
+
+    <div className="pagination">
 {songnamepagecounts.length!==0 ? songnamepagecounts.map(item=>{
 
-    return  <li className="page-item"><p  className="page-link"  style={{display:'inline-block'}} onClick={()=>this.songpages(item)}>{item}</p></li>
+    return  <button onClick={()=>this.songpages(item)}>{item}</button>
 
 }) 
 
@@ -589,14 +588,14 @@ return  <Zoom top cascade><div  >
 :null}
 
 </div>
-</div>
 
 
-<div>
-    <div className="pagination justify-content-center">
+
+
+    <div className="pagination">
 {moviepagecounts.length!==0 ? moviepagecounts.map(item=>{
 
-    return  <li className="page-item"><p  className="page-link"  style={{display:'inline-block'}} onClick={()=>this.moviepages(item)}>{item}</p></li>
+    return    <button onClick={()=>this.moviepages(item)}>{item}</button> 
 
 }) 
 
@@ -605,14 +604,14 @@ return  <Zoom top cascade><div  >
 :null}
 
 </div>
-</div>
 
 
-<div>
-    <div className="pagination justify-content-center">
+
+
+    <div className="pagination">
 {musicpagecounts.length!==0 ? musicpagecounts.map(item=>{
 
-    return  <li className="page-item"><p  className="page-link"  style={{display:'inline-block'}} onClick={()=>this.musicpages(item)}>{item}</p></li>
+    return  <button onClick={()=>this.musicpages(item)}>{item}</button>
 
 }) 
 
@@ -621,14 +620,14 @@ return  <Zoom top cascade><div  >
 :null}
 
 </div>
-</div>
+
 
 
 <div>
-    <div className="pagination justify-content-center">
+    <div className="pagination">
 {singerpagecounts.length!==0 ? singerpagecounts.map(item=>{
 
-    return  <li className="page-item"><p  className="page-link"  style={{display:'inline-block'}} onClick={()=>this.singerpages(item)}>{item}</p></li>
+    return  <button onClick={()=>this.singerpages(item)}>{item}</button>
 
 }) 
 
@@ -638,7 +637,6 @@ return  <Zoom top cascade><div  >
 
 </div>
 </div>
-    
             </div>
         )
     }
