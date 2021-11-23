@@ -74,3 +74,8 @@ display: none;
   
   .pagination button:hover:not(.active) {background-color:green;}
 
+.center {
+    text-align: center;
+  }
+  
+
