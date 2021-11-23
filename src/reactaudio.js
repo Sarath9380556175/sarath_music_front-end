@@ -562,7 +562,7 @@ return  <Zoom top cascade><div  >
 
 <br/>
 <div>
-    <div className="pagination justify-content-center">
+    <div className="pagination">
 {pagecounts.length!==0 &&songnamepagecounts.length===0 &&moviepagecounts.length===0&&musicpagecounts.length===0&&singerpagecounts.length===0? pagecounts.map(item=>{
 
     return  <li className="page-item"><p  className="page-link"  style={{display:'inline-block'}} onClick={()=>this.skr(item)}>{item}</p></li>
