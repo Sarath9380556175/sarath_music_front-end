@@ -1,4 +1,5 @@
 import React from 'react';
+import './Home.css';
 import '@vime/core/themes/default.css';
 import axios from 'axios'
 import { Player, Audio, DefaultUi} from '@vime/react';
