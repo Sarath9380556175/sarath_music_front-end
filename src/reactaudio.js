@@ -562,7 +562,7 @@ return  <Zoom top cascade><div  >
 :<Zoom><div className="mt-3 text-white text-center">SORRY NO SONGS FOUND IN {language} </div></Zoom>}
 
 <br/>
-
+<div class="center">
     <div className="pagination">
 {pagecounts.length!==0 &&songnamepagecounts.length===0 &&moviepagecounts.length===0&&musicpagecounts.length===0&&singerpagecounts.length===0? pagecounts.map(item=>{
 
@@ -573,10 +573,10 @@ return  <Zoom top cascade><div  >
 
 
 :null}
-
+</div>
 </div>
 
-
+<div class="center">
     <div className="pagination">
 {songnamepagecounts.length!==0 ? songnamepagecounts.map(item=>{
 
@@ -589,10 +589,10 @@ return  <Zoom top cascade><div  >
 :null}
 
 </div>
+</div>
 
 
-
-
+<div class="center">
     <div className="pagination">
 {moviepagecounts.length!==0 ? moviepagecounts.map(item=>{
 
@@ -605,10 +605,10 @@ return  <Zoom top cascade><div  >
 :null}
 
 </div>
+</div>
 
 
-
-
+<div class="center">
     <div className="pagination">
 {musicpagecounts.length!==0 ? musicpagecounts.map(item=>{
 
@@ -621,10 +621,10 @@ return  <Zoom top cascade><div  >
 :null}
 
 </div>
+</div>
 
 
-
-<div>
+<div class="center">
     <div className="pagination">
 {singerpagecounts.length!==0 ? singerpagecounts.map(item=>{
 
