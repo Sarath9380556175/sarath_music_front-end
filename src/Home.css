@@ -56,6 +56,28 @@ display: none;
 .pagination {
     display: inline-block;
   }
+
+
+@keyframes tarun {
+
+    0%{
+        background-color:darkorange;
+
+    }
+   
+    50%{
+        background-color:white;
+    }
+
+    100%{
+        background-color: green;
+    }
+}
+
+ .pagination button{
+    animation:tarun 3s infinite;
+}
+  
   
   .pagination button {
     color: black;
