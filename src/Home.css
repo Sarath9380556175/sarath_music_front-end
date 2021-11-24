@@ -61,12 +61,12 @@ display: none;
 @keyframes tarun {
 
     0%{
-        background-color:darkorange;
+        background-color:deeppink;
 
     }
    
     50%{
-        background-color:white;
+        background-color:deepskyblue;
     }
 
     100%{
