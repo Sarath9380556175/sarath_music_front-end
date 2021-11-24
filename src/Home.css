@@ -60,21 +60,26 @@ display: none;
   .pagination button {
     color: black;
     float: left;
-    padding: 8px 16px;
+    padding: 6px 12px;
+    border-radius: 2px;
     text-decoration: none;
     transition: background-color .3s;
     border: 1px solid #ddd;
+
+    margin: 3px 2px;
   }
   
   .pagination button.active {
     background-color: #4CAF50;
     color: white;
     border: 1px solid #fa2424;
+  
   }
   
   .pagination button:hover:not(.active) {background-color:green;}
 
-.center {
+  
+  .center {
     text-align: center;
   }
   
