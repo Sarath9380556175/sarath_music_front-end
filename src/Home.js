@@ -622,7 +622,7 @@ const {songsrequestedmails,requestedmails}=this.state;
          <div className="text-center pb-2 text-primary">Signup Form</div>
         <form className="text-center" onSubmit={this.signup}>
     <input type="email" name="myemail" placeholder="E-MAIL ADDRESS"   onChange={this.UKP}required/><br/><br/>  
-    <input type="tel" name="email" placeholder="MOBILE NUMBER" maxLength='10'  onChange={this.name}required/><br/><br/>
+    <input type="tel"  name="email" pattern="[0-9]{10}" placeholder="MOBILE NUMBER" maxLength='10'  onChange={this.name}required/><br/><br/>
    <input type="Password" name="Pass" placeholder="PASSWORD" onChange={this.password} required/><br/><br/>
     <button className="btn btn-success btn-sm">Submit</button>
                 </form>
@@ -656,7 +656,7 @@ const {songsrequestedmails,requestedmails}=this.state;
 <br/>
 <br/>
 <div className="text-center pb-2 text-primary">Login Form</div>
-    <input type="tel" name="email" placeholder="MOBILE NUMBER" maxLength='10' onChange={this.names} required/><br/><br/>
+    <input type="tel" name="email" pattern="[0-9]{10}" placeholder="MOBILE NUMBER" maxLength='10' onChange={this.names} required/><br/><br/>
     <input type="password" name="pass" placeholder="Password" onChange={this.pass} required/>&nbsp;&nbsp;
     {isvaliduser===true?<div style={{display:'inline'}}>&#10004;</div>:isvaliduser===false?<div style={{display:'inline'}}>&#10060;</div>:null}
     <br/><br/>
@@ -678,7 +678,7 @@ const {songsrequestedmails,requestedmails}=this.state;
 <br/>
 <input type="email" name="youremail" placeholder="E-MAIL ADDRESS"  onChange={this.SKRMAIL} required/><br/><br/>
 
-    <input type="tel" name="useremail" placeholder="MOBILE NUMBER" maxLength='10' onChange={this.usermail} required/><br/><br/>
+    <input type="tel" name="useremail" pattern="[0-9]{10}" placeholder="MOBILE NUMBER" maxLength='10' onChange={this.usermail} required/><br/><br/>
     <button className="btn btn-success btn-sm">Submit</button><br/>
        </form>
               
@@ -784,7 +784,7 @@ const {songsrequestedmails,requestedmails}=this.state;
 <div className="text-center text-success">USER REQUESTED SONGS</div>
 <br/>
 <input type="email" name="emails" id="saraths" placeholder="EMAIL ADDRESS"  required onChange={this.EMAILID} className="pt-1 pb-1"/><br/><br/>
-<input type="tel" name="email" id="sarath" placeholder="MOBILE NUMBER"  maxLength='10' required onClick={this.fuck} className="pt-1 pb-1" onChange={this.youremail} /><br/><br/>
+<input type="tel" name="email" id="sarath"  pattern="[0-9]{10}" placeholder="MOBILE NUMBER"  maxLength='10' required onClick={this.fuck} className="pt-1 pb-1" onChange={this.youremail} /><br/><br/>
     
 <input type="text" name="username" id="tarun" placeholder="MOVIE NAME"  required onClick={this.ukp} className="pt-1 pb-1"  onChange={this.moviename} /><br/><br/>
 <input type="text" name="password" id="hemanth" placeholder="SONG NAME" required  onClick={this.mkp} className="pt-1 pb-1"  onChange={this.songname} /><br/><br/>
