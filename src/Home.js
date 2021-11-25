@@ -70,8 +70,11 @@ class Skr extends React.Component{
             requestedmails:undefined,
             atp:undefined,
             mobilenumbers:[],
-            ramcharan:undefined
-          
+            ramcharan:undefined,
+            valid:undefined,
+            validpassword:undefined
+    
+           
         }
     }
 componentDidMount()
@@ -81,7 +84,7 @@ componentDidMount()
     this.setState({username:skr.email})
 
     axios({
-        url:'https://tranquil-bastion-03369.herokuapp.com/mails',
+        url:'http://localhost:2077/mails',
         method:'POST',
         headers:{'Content-type':'application/json'}
     })
@@ -93,7 +96,7 @@ componentDidMount()
     document.getElementById("allubhai").innerHTML="ok";
 
     axios({
-        url:'https://tranquil-bastion-03369.herokuapp.com/images',
+        url:'http://localhost:2077/images',
         method:'POST',
         headers:{'Content-type':'application/json'}
     })
@@ -103,7 +106,7 @@ componentDidMount()
     .catch(error=>console.log(error));
 
     axios({
-        url:'https://tranquil-bastion-03369.herokuapp.com/songsrequestedmails',
+        url:'http://localhost:2077/songsrequestedmails',
         method:'POST',
         headers:{'Content-type':'application/json'}
       
@@ -115,7 +118,7 @@ componentDidMount()
 
 
     axios({
-        url:'https://tranquil-bastion-03369.herokuapp.com/sendmobilenumbers',
+        url:'http://localhost:2077/sendmobilenumbers',
         method:'POST',
         headers:{'Content-type':'application/json'}
       
@@ -127,7 +130,7 @@ componentDidMount()
 
 
     axios({
-        url:'https://tranquil-bastion-03369.herokuapp.com/sendmails',
+        url:'http://localhost:2077/sendmails',
         method:'POST',
         headers:{'Content-type':'application/json'}
       
@@ -143,12 +146,14 @@ componentDidMount()
     }
 
     name=(event)=>{
+
+    
         var name=event.target.value;
     
         this.setState({name:name});
 
         axios({
-            url:'https://tranquil-bastion-03369.herokuapp.com/signupcheck',
+            url:'http://localhost:2077/signupcheck',
             method:'POST',
             headers:{'Content-type':'application/json'},
             data:
@@ -161,9 +166,6 @@ componentDidMount()
 
         .catch(error=>console.log(error));
 
-
-    
-
     }
 
     password=(event)=>{
@@ -173,39 +175,37 @@ componentDidMount()
 
     }
 
+    
+
     signup=()=>{
 
-        const {name,password,userexist,googleemail}=this.state;
+        const {name,userexist,googleemail,password,valid,validpassword}=this.state;
 
-        if(userexist===false)
+
+        if(valid===false)
         {
-            axios({
-                url:'https://tranquil-bastion-03369.herokuapp.com/signup',
-                method:'POST',
-                headers:{'Content-Type':'application/json'},
-                data:
-                {
-                    useremail:googleemail,
-                    email:name,
-                    password:password,
-                }
-            })
-            .then(response=>this.setState({getsignupdetails:response}))
-    
-            .catch(error=>console.log(error))
+            this.props.history.push('/invalidmail')
+        }
+
+        else if(validpassword===false)
+        {
+            this.props.history.push('/invalidconfirmpassword')
+        }
+
+       else if(userexist===false)
+        {
+           
     // eslint-disable-next-line
-            {userexist===false?this.props.history.push('/thank'):this.props.history.push('/thanks')};
+            {userexist===false?this.props.history.push(`/signupotp/?email=${googleemail}&&password=${password}&&mobilenumber=${name}`):this.props.history.push('/invalidlogin')};
+            
         }
 
         else if(userexist===true)
         {
             alert("USER WITH THIS MOBILE NUMBER ALREADY EXIST");
 
-            this.props.history.push('/thanks');
+            this.props.history.push('/invalidlogin');
         }
-
-       
-    
     }
 
     close=()=>{
@@ -213,7 +213,7 @@ componentDidMount()
     }
 
     login=()=>{
-this.setState({login:true})
+       this.setState({login:true})
     }
 
     closed=()=>{
@@ -240,7 +240,6 @@ this.setState({login:true})
        {
         this.props.history.push(`/thanks`);
        }
-
 }
 
 responseGoogle=(response)=>{
@@ -262,7 +261,7 @@ responseFacebook=(response)=>{
         const password=event.target.value;
 
         axios({
-            url:'https://tranquil-bastion-03369.herokuapp.com/login',
+            url:'http://localhost:2077/login',
             method:'POST',
             headers:{'Content-type':'application/json'},
             data:
@@ -330,7 +329,7 @@ this.setState({useremail:true,login:false})
     notification=()=>{
         const {notificationmessage,attachments,mails,ramcharan}=this.state;
         axios({
-            url:'https://tranquil-bastion-03369.herokuapp.com/notifications',
+            url:'http://localhost:2077/notifications',
             method:'POST',
             headers:{'Content-type':'application/json'},
             data:
@@ -343,8 +342,7 @@ this.setState({useremail:true,login:false})
         })
 
         this.props.history.push('/notification')
-
-    }
+     }
 
     notificationclose=()=>{
         this.setState({notification:false})
@@ -354,16 +352,14 @@ this.setState({useremail:true,login:false})
 
         const adminusername=event.target.value;
         this.setState({adminusername:adminusername})
-
-
-    }
+}
 
     adminpassword=(event)=>{
         const {adminusername}=this.state;
 const adminpassword=event.target.value;
 
 axios({
-    url:'https://tranquil-bastion-03369.herokuapp.com/admin',
+    url:'http://localhost:2077/admin',
     method:'POST',
     headers:{'Content-type':'application/json'},
     data:
@@ -484,7 +480,7 @@ this.props.history.push(`/songrequest/?email=${youremail}&&moviename=${moviename
     bujala=()=>{
         const {yellanur,atp}=this.state;
         axios({
-            url:'https://tranquil-bastion-03369.herokuapp.com/requestedsongnotification',
+            url:'http://localhost:2077/requestedsongnotification',
             method:'POST',
             headers:{'Content-type':'application/json'},
             data:
@@ -522,7 +518,21 @@ this.props.history.push(`/songrequest/?email=${youremail}&&moviename=${moviename
    UKP=(event)=>{
  const googleemail=event.target.value;
  this.setState({googleemail:googleemail})
-   }
+
+
+ axios({
+    url:`https://verify.gmass.co/verify?email=${googleemail}&key=a8fe3531-66bf-4de0-8fc7-feec0688775a`,
+    method:'get'
+
+ })
+ 
+ .then(response =>this.setState({valid:response.data.Valid}))
+ .catch(error => {
+  console.log(error);
+ })
+
+ 
+}
 
    SKRMAIL=(event)=>{
 
@@ -557,8 +567,8 @@ const {songsrequestedmails,requestedmails}=this.state;
  this.setState({ramcharan:mobilenumbers[ntr]})
 
    }
-      
-       pleasesignup=()=>{
+
+   pleasesignup=()=>{
        this.setState({signup:true})
    }
 
@@ -566,10 +576,27 @@ const {songsrequestedmails,requestedmails}=this.state;
        this.setState({login:true})
    }
 
+   confirms=(event)=>{
+       const {password}=this.state;
+
+       const confirmpassword=event.target.value;
+
+       if(password===confirmpassword)
+       {
+           this.setState({validpassword:true})
+       }
+       else if(password !== confirmpassword)
+       {
+        this.setState({validpassword:false})
+       }
+       
+
+
+   }
 
     render()
     {
-        const {useremail, help,images,lakshmi,requestedsongs,isadminverified,admin,notification,signup,login,facebookusername,facebookuserimage,googleuserimage,googleusername,isvaliduser,username}=this.state;
+        const {validpassword, valid, useremail,help,images,lakshmi,requestedsongs,isadminverified,admin,notification,signup,login,facebookusername,facebookuserimage,googleuserimage,googleusername,isvaliduser,username}=this.state;
       
         return(
         <div>
@@ -621,9 +648,17 @@ const {songsrequestedmails,requestedmails}=this.state;
                  <div style={{textAlign:'right'}} onClick={this.close}>close</div>
          <div className="text-center pb-2 text-primary">Signup Form</div>
         <form className="text-center" onSubmit={this.signup}>
-    <input type="email" name="myemail" placeholder="E-MAIL ADDRESS"   onChange={this.UKP}required/><br/><br/>  
-    <input type="tel"  name="email" pattern="[0-9]{10}" placeholder="MOBILE NUMBER" maxLength='10'  onChange={this.name}required/><br/><br/>
+    <input type="email" name="myemail" placeholder="E-MAIL ADDRESS"   onChange={this.UKP}required/>
+    {valid===true?<div style={{display:'inline'}}>&nbsp;&#10004;</div>:valid===false?<div style={{display:'inline'}}>&nbsp;&#10060;</div>:null}
+    <br/><br/>  
+    <input type="tel" name="email" pattern="[0-9]{10}" placeholder="MOBILE NUMBER" maxLength='10'  onChange={this.name}required/><br/><br/>
    <input type="Password" name="Pass" placeholder="PASSWORD" onChange={this.password} required/><br/><br/>
+   <input type="password" name="confirm password" placeholder="CONFIRM PASSWORD" onChange={this.confirms} required/>
+   {validpassword===true?<div style={{display:'inline'}}>&nbsp;&#10004;</div>:validpassword===false?<div style={{display:'inline'}}>&nbsp;&#10060;</div>:null}
+   <br/>
+   <br/>
+<br/>
+
     <button className="btn btn-success btn-sm">Submit</button>
                 </form>
 
@@ -656,7 +691,7 @@ const {songsrequestedmails,requestedmails}=this.state;
 <br/>
 <br/>
 <div className="text-center pb-2 text-primary">Login Form</div>
-    <input type="tel" name="email" pattern="[0-9]{10}" placeholder="MOBILE NUMBER" maxLength='10' onChange={this.names} required/><br/><br/>
+    <input type="tel" name="email" placeholder="MOBILE NUMBER" pattern="[0-9]{10}" maxLength='10' onChange={this.names} required/><br/><br/>
     <input type="password" name="pass" placeholder="Password" onChange={this.pass} required/>&nbsp;&nbsp;
     {isvaliduser===true?<div style={{display:'inline'}}>&#10004;</div>:isvaliduser===false?<div style={{display:'inline'}}>&#10060;</div>:null}
     <br/><br/>
@@ -784,7 +819,7 @@ const {songsrequestedmails,requestedmails}=this.state;
 <div className="text-center text-success">USER REQUESTED SONGS</div>
 <br/>
 <input type="email" name="emails" id="saraths" placeholder="EMAIL ADDRESS"  required onChange={this.EMAILID} className="pt-1 pb-1"/><br/><br/>
-<input type="tel" name="email" id="sarath"  pattern="[0-9]{10}" placeholder="MOBILE NUMBER"  maxLength='10' required onClick={this.fuck} className="pt-1 pb-1" onChange={this.youremail} /><br/><br/>
+<input type="tel" name="email" id="sarath" pattern="[0-9]{10}" placeholder="MOBILE NUMBER"  maxLength='10' required onClick={this.fuck} className="pt-1 pb-1" onChange={this.youremail} /><br/><br/>
     
 <input type="text" name="username" id="tarun" placeholder="MOVIE NAME"  required onClick={this.ukp} className="pt-1 pb-1"  onChange={this.moviename} /><br/><br/>
 <input type="text" name="password" id="hemanth" placeholder="SONG NAME" required  onClick={this.mkp} className="pt-1 pb-1"  onChange={this.songname} /><br/><br/>
@@ -818,7 +853,7 @@ const {songsrequestedmails,requestedmails}=this.state;
               
 </Carousel>
 
-    {username!==undefined?<div  style={{textAlign:'right'}} className="mt-3">
+ {username!==undefined?<div  style={{textAlign:'right'}} className="mt-3">
     
           <div style={{display:'inline',fontStyle:'italic',fontSize:'14px',fontFamily:'cursive'}} className="mr-3 text-white" onClick={this.requestedsongs}>ADMIN</div>
           
@@ -842,8 +877,8 @@ const {songsrequestedmails,requestedmails}=this.state;
                 <br/>
                 <br/>
                 <br/>
-                <br/>
-                <br/>  <div className="text-center text-white">Please <div style={{display:'inline',color:'yellow'}} onClick={this.pleasesignup}>Signup</div> or <div style={{display:'inline',color:'yellow'}} onClick={this.pleaselogin} >Login</div> to Listen the songs</div></div>}}
+                
+                <div className="text-center text-white">Please <div style={{display:'inline',color:'yellow'}} onClick={this.pleasesignup}>Signup</div> or <div style={{display:'inline',color:'yellow'}} onClick={this.pleaselogin} >Login</div> to Listen the songs</div></div>}
             </div>
 
         )
