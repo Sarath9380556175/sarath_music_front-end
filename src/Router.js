@@ -15,6 +15,11 @@ import Page from './firstpage';
 import Requestsong from './songrequest';
 import Mythanks from './mythanks';
 import Audios from './reactaudio';
+import Invalidemail from './invalidemailaddress';
+import Invalidlogin from './invalidlogin';
+import confirmpassword from './confirmpassword';
+import Signupotpverification from './signupotpverification';
+import Signupsuccess from './signupsuccess';
 class Router extends React.Component{
     render()
     {
@@ -36,8 +41,11 @@ class Router extends React.Component{
 <Route exact path="/songrequest" component={Requestsong}/>
 <Route exact path="/thankyouss" component={Mythanks}/>
 <Route exact path="/audio" component={Audios}/>
-
-
+<Route exact path="/invalidmail" component={Invalidemail}/>
+<Route exact path="/invalidlogin" component={Invalidlogin}/>
+<Route exact path="/invalidconfirmpassword" component={confirmpassword}/>
+<Route exact path="/signupotp" component={Signupotpverification}/>
+<Route exact path="/signupsuccess" component={Signupsuccess}/>
 
 </BrowserRouter>
             </div>
