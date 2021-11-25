@@ -14,9 +14,9 @@ class Thank extends React.Component{
     {
         return(
             <div>
-                <div className="mt-3 ml-2 text-white" onClick={this.back}>BACK</div>
+                <div className="mt-3 ml-2 text-success" onClick={this.back}>BACK</div>
 <Zoom cascade bottom><div className="mt-3 text-center text-white">
-                Successfull
+                SUCCESSFULL
             </div></Zoom>
             </div>
             
