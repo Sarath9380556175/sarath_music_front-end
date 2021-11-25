@@ -28,7 +28,7 @@ class Password extends React.Component{
     {
         return(
             <div>
-                <div className=" mt-3 text-white ml-3" onClick={this.fuckoff}>BACK</div>
+                <div className=" mt-3 text-success ml-3" onClick={this.fuckoff}>BACK</div>
             <div className="text-center mt-3 text-white">
 PASSWORD UPDATED SUCCESSFULLY
             </div>
