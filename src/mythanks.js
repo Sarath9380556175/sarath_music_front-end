@@ -13,7 +13,7 @@ class Mythanks extends React.Component{
             <div>
                 <div className="text-success ml-3 mt-2" onClick={this.back}>BACK</div>
             <Zoom cascade bottom><div className="mt-3 text-center text-white">
-            Successfull
+            SUCCESSFULL
         </div></Zoom>
         </div>
         )
