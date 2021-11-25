@@ -9,7 +9,7 @@ componentDidMount()
 
     const kkr=qs.parse(this.props.location.search)
     axios({
-        url:'http://localhost:2077/signup',
+        url:'https://tranquil-bastion-03369.herokuapp.com/signup',
         method:'POST',
         headers:{'Content-type':'application/json'},
         data:
@@ -27,7 +27,7 @@ componentDidMount()
 
 
             axios({
-                url:'http://localhost:2077/deleteotp',
+                url:'https://tranquil-bastion-03369.herokuapp.com/deleteotp',
                 method:'POST',
                 headers:{'Content-type':'application/json'},
                 data:
