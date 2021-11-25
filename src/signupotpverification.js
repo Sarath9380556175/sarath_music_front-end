@@ -29,7 +29,7 @@ password:skr.password
 })
 
         axios({
-            url:'http://localhost:2077/signupotpverification',
+            url:'https://tranquil-bastion-03369.herokuapp.com/signupotpverification',
             method:'POST',
             headers:{'Content-type':'application/json'},
             data:
@@ -44,7 +44,7 @@ password:skr.password
 
         const {email}=this.state;
         axios({
-            url:'http://localhost:2077/signupotpverification',
+            url:'https://tranquil-bastion-03369.herokuapp.com/signupotpverification',
             method:'POST',
             headers:{'Content-type':'application/json'},
             data:
@@ -59,7 +59,7 @@ password:skr.password
 
 const otp=event.target.value;
         axios({
-            url:'http://localhost:2077/isotpvalid',
+            url:'https://tranquil-bastion-03369.herokuapp.com/isotpvalid',
             method:'POST',
             headers:{'Content-type':'application/json'},
             data:
