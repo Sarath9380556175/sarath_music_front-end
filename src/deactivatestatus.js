@@ -8,7 +8,7 @@ class Deactivatestatus extends React.Component{
         const kkr=qs.parse(this.props.location.search)
 
 axios({
-    url:'http://localhost:2077/deactivateaccount',
+    url:'https://tranquil-bastion-03369.herokuapp.com/deactivateaccount',
     method:'POST',
     headers:{'Content-type':'application/json'},
     data:
@@ -20,7 +20,7 @@ axios({
 })
 
         axios({
-            url:'http://localhost:2077/deleteotp',
+            url:'https://tranquil-bastion-03369.herokuapp.com/deleteotp',
             method:'POST',
             headers:{'Content-type':'application/json'},
             data:
