@@ -72,7 +72,10 @@ class Skr extends React.Component{
             mobilenumbers:[],
             ramcharan:undefined,
             valid:undefined,
-            validpassword:undefined
+            validpassword:undefined,
+             deactivate:false,
+            canwedeactivate:undefined,
+            deactivateemail:undefined
     
            
         }
@@ -593,6 +596,51 @@ const {songsrequestedmails,requestedmails}=this.state;
 
 
    }
+      
+       deactivate=()=>{
+this.setState({deactivate:true})
+   }
+
+   
+deactivateclose=()=>{
+    this.setState({deactivate:false})
+}
+
+emailuser=(event)=>{
+    const deactivateemail=event.target.value;
+
+    this.setState({deactivateemail:deactivateemail})
+
+    axios({
+        url:'http://localhost:2077/deactivateemail',
+        method:'POST',
+        headers:{'Content-type':'application/json'},
+        data:
+        {
+            email:deactivateemail
+        }
+    })
+
+    .then(response=>this.setState({canwedeactivate:response.data.canwedeactivate}))
+
+    .catch()
+}
+
+netfair=()=>{
+
+    const {canwedeactivate,deactivateemail}=this.state;
+
+    if(canwedeactivate===true)
+    {
+        this.props.history.push(`/deactivatechecking/?email=${deactivateemail}`)
+    }
+
+    else if(canwedeactivate===false)
+    {
+        this.props.history.push('/invalidemail')
+    }
+
+}
 
     render()
     {
@@ -759,6 +807,24 @@ const {songsrequestedmails,requestedmails}=this.state;
     <input type="text" name="username" placeholder="ADMIN" onChange={this.adminusername} required/><br/><br/>
     <input type="text" name="password" placeholder="PASSWORD" onChange={this.adminpassword} required/><br/><br/>
     <div className="btn btn-success" onClick={this.tkr}>submit</div>
+    
+       </form>
+              
+            </Modal>
+
+ <Modal
+          isOpen={deactivate}
+            style={customStyles}
+            >
+                 
+                 <div style={{textAlign:'right'}} onClick={this.deactivateclose}>close</div>
+        <form className="text-center">
+     
+<br/>
+<div className="text-center text-success">ADMIN</div>
+<br/>
+    <input type="email" name="useremail" placeholder="EMAIL ADDRESS" onChange={this.emailuser} required/><br/><br/>
+    <div className="btn btn-success" onClick={this.netfair}>submit</div>
     
        </form>
               
