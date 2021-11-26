@@ -10,8 +10,8 @@ class Notdeactivatestatus extends React.Component{
         return(
             <div>
                 <div onClick={this.back} className="mt-3 ml-3 text-success">BACK</div>
-   <div className="text-center">YOUR ACCOUNT WAS NOT SUCCESSFULLY DEACTIVATED</div><br/>
-   <div className="text-center">THANK YOU</div>
+   <div className="text-center text-white">YOUR ACCOUNT WAS NOT SUCCESSFULLY DEACTIVATED</div><br/>
+   <div className="text-center text-white">THANK YOU</div>
             </div>
         )
     }
