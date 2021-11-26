@@ -22,7 +22,7 @@ const skr=qs.parse(this.props.location.search)
 this.setState({email:skr.email})
 
 axios({
-    url:'http://localhost:2077/deactivateotpverification',
+    url:'https://tranquil-bastion-03369.herokuapp.com/deactivateotpverification',
     method:'POST',
     headers:{'Content-type':'application/json'},
     data:
@@ -39,7 +39,7 @@ otp=(event)=>{
 
 
     axios({
-        url:'http://localhost:2077/isotpvalid',
+        url:'https://tranquil-bastion-03369.herokuapp.com/isotpvalid',
         method:'POST',
         headers:{'Content-type':'application/json'},
         data:
@@ -75,7 +75,7 @@ resendotp=()=>{
 
     const {email}=this.state;
     axios({
-        url:'http://localhost:2077/deactivateotpverification',
+        url:'https://tranquil-bastion-03369.herokuapp.com/deactivateotpverification',
         method:'POST',
         headers:{'Content-type':'application/json'},
         data:
