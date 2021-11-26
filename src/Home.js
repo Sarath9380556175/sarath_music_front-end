@@ -644,7 +644,7 @@ netfair=()=>{
 
     render()
     {
-        const {validpassword, valid, useremail,help,images,lakshmi,requestedsongs,isadminverified,admin,notification,signup,login,facebookusername,facebookuserimage,googleuserimage,googleusername,isvaliduser,username}=this.state;
+        const {validpassword,deactivate, valid, useremail,help,images,lakshmi,requestedsongs,isadminverified,admin,notification,signup,login,facebookusername,facebookuserimage,googleuserimage,googleusername,isvaliduser,username}=this.state;
       
         return(
         <div>
