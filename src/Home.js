@@ -684,6 +684,8 @@ netfair=()=>{
 
 
 <li className="nav-item pt-3 bujala" style={{textAlign:'right'}}><div className="text-white" style={{display:'inline'}} onClick={this.skr}>Signup</div></li>  
+      
+       <li className="nav-item pt-3 bujala" style={{textAlign:'right'}}><div className="text-white" style={{display:'inline'}} onClick={this.deactivate}>Deactivate Account</div></li>  
         
                 </ul>
   </div>
