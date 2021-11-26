@@ -612,7 +612,7 @@ emailuser=(event)=>{
     this.setState({deactivateemail:deactivateemail})
 
     axios({
-        url:'http://localhost:2077/deactivateemail',
+        url:'https://tranquil-bastion-03369.herokuapp.com/deactivateemail',
         method:'POST',
         headers:{'Content-type':'application/json'},
         data:
