@@ -19,34 +19,7 @@ class Forgot extends React.Component{
     {
 const skr=qs.parse(this.props.location.search)
 this.setState({email:skr.useremail,mail:skr.mymail})
-
-const otp = Math.floor(1000 + Math.random() * 9000);
-var options = {
-    method: 'POST',
-    url: 'https://sms77io.p.rapidapi.com/sms',
-    headers: {
-      'content-type': 'application/x-www-form-urlencoded',
-      'x-rapidapi-host': 'sms77io.p.rapidapi.com',
-      'x-rapidapi-key': '72203f99d0msh2f36949da9383c8p13ad7cjsn8de13c368bb7'
-    },
-    data: {
-      to: '+919380556175',
-      p: 'euzYrVA7HkCbnnAJQR9AzxzfwPO4JYGw',
-      text:`OTP for forgot password is:${otp}`
-    }
-  };
-  
-  axios.request(options).then(function (response) {
-      console.log(response.data);
-  }).catch(function (error) {
-      console.error(error);
-  });
-  
-
-
-  
-  
-
+        
 axios({
     url:'https://tranquil-bastion-03369.herokuapp.com/forgot',
     method:'POST',
