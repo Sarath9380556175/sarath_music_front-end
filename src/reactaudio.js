@@ -147,7 +147,7 @@ class Audios extends React.Component{
           if(mypage<=allsongspagecount)
           {
             this.setState({page:mypage}) 
-          }
+          
 
              
 
@@ -167,7 +167,7 @@ class Audios extends React.Component{
 
           .catch()
           
-          
+          }
             
           }
 
@@ -242,7 +242,7 @@ if(mypage>0)
         
           {
             this.setState({page:mypage})
-          }
+          
                       axios({
                         url:'https://tranquil-bastion-03369.herokuapp.com/findbysongname',
                         method:'POST',
@@ -261,7 +261,7 @@ if(mypage>0)
                       
                     }
                   
-               
+        }
 
           
           movienameprev=()=>{
@@ -301,7 +301,7 @@ if(mypage>0)
                         if(mypage<=findingsongsbymovienamespagecount)
                         {
                           this.setState({page:mypage})
-                        }
+                        
                         axios({
                           url:'https://tranquil-bastion-03369.herokuapp.com/findbymoviename',
                           method:'POST',
@@ -319,6 +319,7 @@ if(mypage>0)
                    
                       .catch()
                                   }
+                      }
                  
 
                       
@@ -364,7 +365,7 @@ if(mypage>0)
           if(mypage<=findsongsbymusicdirector)
           {
           this.setState({page:mypage})
-          }
+          
           
           
                         axios({
@@ -384,6 +385,7 @@ if(mypage>0)
                                 .catch()
                                   
                                 }
+                    }
                               
                            
           
@@ -428,7 +430,7 @@ this.setState({page:mypage})
                       if(mypage<=findingsongsbysinger)
                       {
                         this.setState({page:mypage})
-                      }
+                      
           
                       
                                   axios({
@@ -448,6 +450,7 @@ this.setState({page:mypage})
                                 .catch()
                                   
                                 }
+                    }
                               
                            
                                
