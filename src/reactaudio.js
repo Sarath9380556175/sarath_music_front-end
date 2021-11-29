@@ -890,8 +890,8 @@ this.setState({ramanapage:mypage})
                 color="primary"
                 onClick={() => this.startListening()}
                 variant="contained"
-           style={{color:'red',fontSize:'25px',background:'white',borderRadius:'2px'}}
-                className="fas fa-microphone pl-3 pr-3 pt-1"
+           style={{color:'red',fontSize:'20px',background:'white',borderRadius:'2px'}}
+                className="fas fa-microphone pl-2 pr-2 pt-2"
               >
                
               </div>
