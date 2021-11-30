@@ -79,7 +79,7 @@ class Audios extends React.Component{
 
         this.setState({language:skr.language})
       axios({
-          url:'http://localhost:2077/findmusicbylanguage',
+          url:'https://tranquil-bastion-03369.herokuapp.com/findmusicbylanguage',
           method:'POST',
           headers:{'Content-type':'application/json'},
           data:
@@ -104,7 +104,7 @@ console.log(text)
 
       const {language}=this.state;
       axios({
-        url:'http://localhost:2077/findbymoviename',
+        url:'https://tranquil-bastion-03369.herokuapp.com/findbymoviename',
         method:'POST',
         headers:{'Content-type':'application/json'},
         data:
@@ -120,7 +120,7 @@ console.log(text)
     .catch()
    
       axios({
-          url:'http://localhost:2077/findbysongname',
+          url:'https://tranquil-bastion-03369.herokuapp.com/findbysongname',
           method:'POST',
           headers:{'Content-type':'application/json'},
           data:
@@ -137,7 +137,7 @@ console.log(text)
   
 
       axios({
-        url:'http://localhost:2077/findbymusicdirector',
+        url:'https://tranquil-bastion-03369.herokuapp.com/findbymusicdirector',
         method:'POST',
         headers:{'Content-type':'application/json'},
         data:
@@ -152,7 +152,7 @@ console.log(text)
     .catch()
 
     axios({
-      url:'http://localhost:2077/findbysinger',
+      url:'https://tranquil-bastion-03369.herokuapp.com/findbysinger',
       method:'POST',
       headers:{'Content-type':'application/json'},
       data:
@@ -169,7 +169,7 @@ console.log(text)
 
 
   axios({
-    url:'http://localhost:2077/findmusicbylanguage',
+    url:'https://tranquil-bastion-03369.herokuapp.com/findmusicbylanguage',
     method:'POST',
     headers:{'Content-type':'application/json'},
     data:
@@ -237,7 +237,7 @@ console.log(text)
       if(searchnames!==undefined)
       {
         axios({
-          url:'http://localhost:2077/findbymoviename',
+          url:'https://tranquil-bastion-03369.herokuapp.com/findbymoviename',
           method:'POST',
           headers:{'Content-type':'application/json'},
           data:
@@ -253,7 +253,7 @@ console.log(text)
       .catch()
      
         axios({
-            url:'http://localhost:2077/findbysongname',
+            url:'https://tranquil-bastion-03369.herokuapp.com/findbysongname',
             method:'POST',
             headers:{'Content-type':'application/json'},
             data:
@@ -270,7 +270,7 @@ console.log(text)
     
 
         axios({
-          url:'http://localhost:2077/findbymusicdirector',
+          url:'https://tranquil-bastion-03369.herokuapp.com/findbymusicdirector',
           method:'POST',
           headers:{'Content-type':'application/json'},
           data:
@@ -285,7 +285,7 @@ console.log(text)
       .catch()
 
       axios({
-        url:'http://localhost:2077/findbysinger',
+        url:'https://tranquil-bastion-03369.herokuapp.com/findbysinger',
         method:'POST',
         headers:{'Content-type':'application/json'},
         data:
@@ -314,7 +314,7 @@ console.log(text)
              
 
             axios({
-              url:'http://localhost:2077/findmusicbylanguage',
+              url:'https://tranquil-bastion-03369.herokuapp.com/findmusicbylanguage',
               method:'POST',
               headers:{'Content-type':'application/json'},
               data:
@@ -347,7 +347,7 @@ console.log(text)
                
   
               axios({
-                url:'http://localhost:2077/findmusicbylanguage',
+                url:'https://tranquil-bastion-03369.herokuapp.com/findmusicbylanguage',
                 method:'POST',
                 headers:{'Content-type':'application/json'},
                 data:
@@ -376,7 +376,7 @@ if(mypage>0)
   this.setState({songpage:mypage})
 }
             axios({
-              url:'http://localhost:2077/findbysongname',
+              url:'https://tranquil-bastion-03369.herokuapp.com/findbysongname',
               method:'POST',
               headers:{'Content-type':'application/json'},
               data:
@@ -406,7 +406,7 @@ if(mypage>0)
             this.setState({songpage:mypage})
           
                       axios({
-                        url:'http://localhost:2077/findbysongname',
+                        url:'https://tranquil-bastion-03369.herokuapp.com/findbysongname',
                         method:'POST',
                         headers:{'Content-type':'application/json'},
                         data:
@@ -436,7 +436,7 @@ if(mypage>0)
               this.setState({pages:mypage})
             }
             axios({
-              url:'http://localhost:2077/findbymoviename',
+              url:'https://tranquil-bastion-03369.herokuapp.com/findbymoviename',
               method:'POST',
               headers:{'Content-type':'application/json'},
               data:
@@ -465,7 +465,7 @@ if(mypage>0)
                           this.setState({pages:mypage})
                         
                         axios({
-                          url:'http://localhost:2077/findbymoviename',
+                          url:'https://tranquil-bastion-03369.herokuapp.com/findbymoviename',
                           method:'POST',
                           headers:{'Content-type':'application/json'},
                           data:
@@ -498,7 +498,7 @@ if(mypage>0)
 
 
               axios({
-                          url:'http://localhost:2077/findbymusicdirector',
+                          url:'https://tranquil-bastion-03369.herokuapp.com/findbymusicdirector',
                           method:'POST',
                           headers:{'Content-type':'application/json'},
                           data:
@@ -530,7 +530,7 @@ if(mypage>0)
           
           
                         axios({
-                                    url:'http://localhost:2077/findbymusicdirector',
+                                    url:'https://tranquil-bastion-03369.herokuapp.com/findbymusicdirector',
                                     method:'POST',
                                     headers:{'Content-type':'application/json'},
                                     data:
@@ -562,7 +562,7 @@ this.setState({singerpage:mypage})
             }
             
                         axios({
-                          url:'http://localhost:2077/findbysinger',
+                          url:'https://tranquil-bastion-03369.herokuapp.com/findbysinger',
                           method:'POST',
                           headers:{'Content-type':'application/json'},
                           data:
@@ -594,7 +594,7 @@ this.setState({singerpage:mypage})
           
                       
                                   axios({
-                                    url:'http://localhost:2077/findbysinger',
+                                    url:'https://tranquil-bastion-03369.herokuapp.com/findbysinger',
                                     method:'POST',
                                     headers:{'Content-type':'application/json'},
                                     data:
@@ -628,7 +628,7 @@ this.setState({singerpage:mypage})
                   this.setState({sarathpage:mypage})
                 
                 axios({
-                  url:'http://localhost:2077/findbymoviename',
+                  url:'https://tranquil-bastion-03369.herokuapp.com/findbymoviename',
                   method:'POST',
                   headers:{'Content-type':'application/json'},
                   data:
@@ -660,7 +660,7 @@ this.setState({singerpage:mypage})
                   this.setState({sarathpage:mypage})
                 }
                 axios({
-                  url:'http://localhost:2077/findbymoviename',
+                  url:'https://tranquil-bastion-03369.herokuapp.com/findbymoviename',
                   method:'POST',
                   headers:{'Content-type':'application/json'},
                   data:
@@ -689,7 +689,7 @@ this.setState({singerpage:mypage})
                   this.setState({tarunpage:mypage})
                 }
                             axios({
-                              url:'http://localhost:2077/findbysongname',
+                              url:'https://tranquil-bastion-03369.herokuapp.com/findbysongname',
                               method:'POST',
                               headers:{'Content-type':'application/json'},
                               data:
@@ -719,7 +719,7 @@ this.setState({singerpage:mypage})
                             this.setState({tarunpage:mypage})
                           
                                       axios({
-                                        url:'http://localhost:2077/findbysongname',
+                                        url:'https://tranquil-bastion-03369.herokuapp.com/findbysongname',
                                         method:'POST',
                                         headers:{'Content-type':'application/json'},
                                         data:
@@ -753,7 +753,7 @@ this.setState({singerpage:mypage})
               
               
                             axios({
-                                        url:'http://localhost:2077/findbymusicdirector',
+                                        url:'https://tranquil-bastion-03369.herokuapp.com/findbymusicdirector',
                                         method:'POST',
                                         headers:{'Content-type':'application/json'},
                                         data:
@@ -785,7 +785,7 @@ this.setState({singerpage:mypage})
                         
                         
                                       axios({
-                                                  url:'http://localhost:2077/findbymusicdirector',
+                                                  url:'https://tranquil-bastion-03369.herokuapp.com/findbymusicdirector',
                                                   method:'POST',
                                                   headers:{'Content-type':'application/json'},
                                                   data:
@@ -817,7 +817,7 @@ this.setState({ramanapage:mypage})
             }
             
                         axios({
-                          url:'http://localhost:2077/findbysinger',
+                          url:'https://tranquil-bastion-03369.herokuapp.com/findbysinger',
                           method:'POST',
                           headers:{'Content-type':'application/json'},
                           data:
@@ -849,7 +849,7 @@ this.setState({ramanapage:mypage})
           
                       
                                   axios({
-                                    url:'http://localhost:2077/findbysinger',
+                                    url:'https://tranquil-bastion-03369.herokuapp.com/findbysinger',
                                     method:'POST',
                                     headers:{'Content-type':'application/json'},
                                     data:
