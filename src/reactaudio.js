@@ -1190,11 +1190,10 @@ return  <Zoom top cascade><div  >
 
 <div>
   
+  
+{pagecounts.length!==0 &&songnamepagecounts.length===0 &&moviepagecounts.length===0&&musicpagecounts.length===0&&singerpagecounts.length===0 && sarathmoviepagecounts.length===0 && tarunsongpagecounts.length===0 && hemanthmusicpagecounts.length===0 && ramanasingerpagecounts.length===0? 
   <div class="center">
     <div className="pagination">
-{pagecounts.length!==0 &&songnamepagecounts.length===0 &&moviepagecounts.length===0&&musicpagecounts.length===0&&singerpagecounts.length===0 && sarathmoviepagecounts.length===0 && tarunsongpagecounts.length===0 && hemanthmusicpagecounts.length===0 && ramanasingerpagecounts.length===0? 
-
-<div>
     <button onClick={this.prev} className="btn btn-sm">PREV</button>
 
    <button onClick={this.next} className="btn btn-sm">NEXT</button>
@@ -1202,67 +1201,64 @@ return  <Zoom top cascade><div  >
   
 
 </div>
-
+</div>
 :null}
-</div>
-</div>
-<div class="center">
-    <div className="pagination">
+
+
+
 {songnamepagecounts.length!==0 &&findingsongbysongname>1 ? 
 
-<div>
+<div class="center">
+    <div className="pagination">
     <button onClick={this.songnameprev} className="btn btn-sm">PREV</button>
 
    <button onClick={this.songnamenext} className="btn btn-sm">NEXT</button>
 
 </div>
-
+</div>
 :null}
-</div>
-</div>
 
 
 
-<div class="center">
-    <div className="pagination">
+
+
+
 {moviepagecounts.length!==0 && findingsongsbymovienamespagecount>1? 
-<div>
-
+  <div class="center">
+    <div className="pagination">
 <button onClick={this.movienameprev} className="btn btn-sm">PREV</button>
 
    <button onClick={this.movienamenext} className="btn btn-sm">NEXT</button>
 
   </div>
-
+  </div>
 
 :null}
-</div>
-</div>
 
 
 
-<div class="center">
-    <div className="pagination">
+
+
 {musicpagecounts.length!==0 &&findsongsbymusicdirector>1 ? 
    
-
-<div>
+<div class="center">
+    <div className="pagination">
 
 <button onClick={this.musicprev} className="btn btn-sm">PREV</button>
 
    <button onClick={this.musicnext} className="btn btn-sm">NEXT</button>
 
   </div>
-
+  </div>
 :<div style={{display:'none'}}>ok</div>}
-</div>
-</div>
+
+
+
+
+{singerpagecounts.length!==0 && findingsongsbysinger>1 ? 
 
 <div class="center">
     <div className="pagination">
-{singerpagecounts.length!==0 && findingsongsbysinger>1 ? 
-
-<div>
 
 <button onClick={this.singerprev} className="btn btn-sm">PREV</button>
 
@@ -1270,10 +1266,9 @@ return  <Zoom top cascade><div  >
 
   </div>
 
-
+  </div>
 :null}    
-</div>
-</div>
+
   </div>
   :<div style={{display:'none'}}> ok</div>}
 
@@ -1284,11 +1279,11 @@ return  <Zoom top cascade><div  >
 
 <div>
 
-<div class="center">
-    <div className="pagination">
+
 {sarathmoviepagecounts.length!==0 && sarathpagecount>1 ? 
 
-<div>
+<div class="center">
+    <div className="pagination">
 
 <button onClick={this.sarathprev} className="btn btn-sm">PREV</button>
 
@@ -1296,67 +1291,65 @@ return  <Zoom top cascade><div  >
 
   </div>
 
-
+  </div>
 :null}    
-</div>
-</div>
+
+
+
+{tarunsongpagecounts.length!==0 && tarunpagecount>1 ? 
+
 
 <div class="center">
     <div className="pagination">
-{tarunsongpagecounts.length!==0 && tarunpagecount>1 ? 
-
-<div>
 
 <button onClick={this.tarunprev} className="btn btn-sm">PREV</button>
 
    <button onClick={this.tarunnext} className="btn btn-sm">NEXT</button>
 
   </div>
-
+  </div>
 
 :null}    
-</div>
-</div>
 
 
-<div class="center">
-    <div className="pagination">
+
+
 {hemanthmusicpagecounts.length!==0 && hemanthpagecount>1 ? 
+  <div class="center">
+    <div className="pagination">
 
-<div>
 
 <button onClick={this.hemanthprev} className="btn btn-sm">PREV</button>
 
    <button onClick={this.hemanthnext} className="btn btn-sm">NEXT</button>
 
   </div>
+  </div>
 
 
 :null}    
-</div>
-</div>
 
 
-<div class="center">
-    <div className="pagination">
+
+
 {ramanasingerpagecounts.length!==0  && ramanapagecount>1 ? 
+  <div class="center">
+    <div className="pagination">
 
-<div style={{display:'inline'}}>
 
 <button onClick={this.ramanaprev} className="btn btn-sm">PREV</button>
 
    <button onClick={this.ramananext} className="btn btn-sm">NEXT</button>
 
   </div>
+  </div>
+
 
 :null}    
-</div>
-</div>
+
 
   </div>
 :null}
-
-
 
   
             </div>
