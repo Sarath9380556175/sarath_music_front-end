@@ -79,7 +79,7 @@ class Audios extends React.Component{
 
         this.setState({language:skr.language})
       axios({
-          url:'https://tranquil-bastion-03369.herokuapp.com/findmusicbylanguage',
+          url:'http://localhost:2077/findmusicbylanguage',
           method:'POST',
           headers:{'Content-type':'application/json'},
           data:
@@ -100,11 +100,11 @@ class Audios extends React.Component{
 
       this.setState({words:text})
 
-
+console.log(text)
 
       const {language}=this.state;
       axios({
-        url:'https://tranquil-bastion-03369.herokuapp.com/findbymoviename',
+        url:'http://localhost:2077/findbymoviename',
         method:'POST',
         headers:{'Content-type':'application/json'},
         data:
@@ -115,12 +115,12 @@ class Audios extends React.Component{
         }
     })
  
-    .then(response=>this.setState({moviesong:response.data.moviesongs,ismovieexist:response.data.ismovieexist,sarathmoviepagecounts:response.data.pagecounts,sarathpagecount:response.data.pagecount,moviepagecounts:[],songnamepagecounts:[],musicpagecounts:[],singerpagecounts:[]}))
+    .then(response=>this.setState({moviesong:response.data.moviesongs,sarathpage:1,ismovieexist:response.data.ismovieexist,sarathmoviepagecounts:response.data.pagecounts,sarathpagecount:response.data.pagecount,moviepagecounts:[],songnamepagecounts:[],musicpagecounts:[],singerpagecounts:[]}))
  
     .catch()
    
       axios({
-          url:'https://tranquil-bastion-03369.herokuapp.com/findbysongname',
+          url:'http://localhost:2077/findbysongname',
           method:'POST',
           headers:{'Content-type':'application/json'},
           data:
@@ -130,14 +130,14 @@ class Audios extends React.Component{
           }
       })
    
-      .then(response=>this.setState({filtersongs:response.data.songnames,issongexist:response.data.issongexist,tarunsongpagecounts:response.data.pagecounts,tarunpagecount:response.data.pagecount,moviepagecounts:[],songnamepagecounts:[],musicpagecounts:[],singerpagecounts:[]}))
+      .then(response=>this.setState({filtersongs:response.data.songnames,tarunpage:1,issongexist:response.data.issongexist,tarunsongpagecounts:response.data.pagecounts,tarunpagecount:response.data.pagecount,moviepagecounts:[],songnamepagecounts:[],musicpagecounts:[],singerpagecounts:[]}))
    
       .catch()
 
   
 
       axios({
-        url:'https://tranquil-bastion-03369.herokuapp.com/findbymusicdirector',
+        url:'http://localhost:2077/findbymusicdirector',
         method:'POST',
         headers:{'Content-type':'application/json'},
         data:
@@ -147,12 +147,12 @@ class Audios extends React.Component{
         }
     })
  
-    .then(response=>this.setState({musicsongs:response.data.musicdirector,isdirectorexist:response.data.isdirectorexist,hemanthmusicpagecounts:response.data.pagecounts,hemanthpagecount:response.data.pagecount,moviepagecounts:[],songnamepagecounts:[],musicpagecounts:[],singerpagecounts:[]}))
+    .then(response=>this.setState({musicsongs:response.data.musicdirector,hemanthpage:1, isdirectorexist:response.data.isdirectorexist,hemanthmusicpagecounts:response.data.pagecounts,hemanthpagecount:response.data.pagecount,moviepagecounts:[],songnamepagecounts:[],musicpagecounts:[],singerpagecounts:[]}))
  
     .catch()
 
     axios({
-      url:'https://tranquil-bastion-03369.herokuapp.com/findbysinger',
+      url:'http://localhost:2077/findbysinger',
       method:'POST',
       headers:{'Content-type':'application/json'},
       data:
@@ -162,14 +162,14 @@ class Audios extends React.Component{
       }
   })
 
-  .then(response=>this.setState({singersogs:response.data.singernames,issingerexist:response.data.issingerexist,ramanasingerpagecounts:response.data.pagecounts,ramanapagecount:response.data.pagecount,moviepagecounts:[],songnamepagecounts:[],musicpagecounts:[],singerpagecounts:[]}))
+  .then(response=>this.setState({singersogs:response.data.singernames,ramanapage:1, issingerexist:response.data.issingerexist,ramanasingerpagecounts:response.data.pagecounts,ramanapagecount:response.data.pagecount,moviepagecounts:[],songnamepagecounts:[],musicpagecounts:[],singerpagecounts:[]}))
 
   .catch()
 
 
 
   axios({
-    url:'https://tranquil-bastion-03369.herokuapp.com/findmusicbylanguage',
+    url:'http://localhost:2077/findmusicbylanguage',
     method:'POST',
     headers:{'Content-type':'application/json'},
     data:
@@ -233,8 +233,11 @@ class Audios extends React.Component{
     search=()=>{
 
       const {searchnames,language}=this.state;
+
+      if(searchnames!==undefined)
+      {
         axios({
-          url:'https://tranquil-bastion-03369.herokuapp.com/findbymoviename',
+          url:'http://localhost:2077/findbymoviename',
           method:'POST',
           headers:{'Content-type':'application/json'},
           data:
@@ -245,12 +248,12 @@ class Audios extends React.Component{
           }
       })
    
-      .then(response=>this.setState({moviesong:response.data.moviesongs,ismovieexist:response.data.ismovieexist,moviepagecounts:response.data.pagecounts,findingsongsbymovienamespagecount:response.data.pagecount,sarathmoviepagecounts:[],tarunsongpagecounts:[],hemanthmusicpagecounts:[],ramanasingerpagecounts:[]}))
+      .then(response=>this.setState({moviesong:response.data.moviesongs,ismovieexist:response.data.ismovieexist,moviepagecounts:response.data.pagecounts,findingsongsbymovienamespagecount:response.data.pagecount,sarathmoviepagecounts:[],tarunsongpagecounts:[],hemanthmusicpagecounts:[],ramanasingerpagecounts:[],pages:1}))
    
       .catch()
      
         axios({
-            url:'https://tranquil-bastion-03369.herokuapp.com/findbysongname',
+            url:'http://localhost:2077/findbysongname',
             method:'POST',
             headers:{'Content-type':'application/json'},
             data:
@@ -260,14 +263,14 @@ class Audios extends React.Component{
             }
         })
      
-        .then(response=>this.setState({filtersongs:response.data.songnames,issongexist:response.data.issongexist,songnamepagecounts:response.data.pagecounts,findingsongbysongname:response.data.pagecount,sarathmoviepagecounts:[],tarunsongpagecounts:[],hemanthmusicpagecounts:[],ramanasingerpagecounts:[]}))
+        .then(response=>this.setState({filtersongs:response.data.songnames,issongexist:response.data.issongexist,songnamepagecounts:response.data.pagecounts,findingsongbysongname:response.data.pagecount,sarathmoviepagecounts:[],tarunsongpagecounts:[],hemanthmusicpagecounts:[],ramanasingerpagecounts:[],songpage:1}))
      
         .catch()
 
     
 
         axios({
-          url:'https://tranquil-bastion-03369.herokuapp.com/findbymusicdirector',
+          url:'http://localhost:2077/findbymusicdirector',
           method:'POST',
           headers:{'Content-type':'application/json'},
           data:
@@ -277,12 +280,12 @@ class Audios extends React.Component{
           }
       })
    
-      .then(response=>this.setState({musicsongs:response.data.musicdirector,isdirectorexist:response.data.isdirectorexist,musicpagecounts:response.data.pagecounts,findsongsbymusicdirector:response.data.pagecount,sarathmoviepagecounts:[],tarunsongpagecounts:[],hemanthmusicpagecounts:[],ramanasingerpagecounts:[]}))
+      .then(response=>this.setState({musicsongs:response.data.musicdirector,isdirectorexist:response.data.isdirectorexist,musicpagecounts:response.data.pagecounts,findsongsbymusicdirector:response.data.pagecount,sarathmoviepagecounts:[],tarunsongpagecounts:[],hemanthmusicpagecounts:[],ramanasingerpagecounts:[],musicpage:1}))
    
       .catch()
 
       axios({
-        url:'https://tranquil-bastion-03369.herokuapp.com/findbysinger',
+        url:'http://localhost:2077/findbysinger',
         method:'POST',
         headers:{'Content-type':'application/json'},
         data:
@@ -292,11 +295,11 @@ class Audios extends React.Component{
         }
     })
  
-    .then(response=>this.setState({singersogs:response.data.singernames,issingerexist:response.data.issingerexist,singerpagecounts:response.data.pagecounts,findingsongsbysinger:response.data.pagecount,sarathmoviepagecounts:[],tarunsongpagecounts:[],hemanthmusicpagecounts:[],ramanasingerpagecounts:[]}))
+    .then(response=>this.setState({singersogs:response.data.singernames,issingerexist:response.data.issingerexist,singerpagecounts:response.data.pagecounts,findingsongsbysinger:response.data.pagecount,sarathmoviepagecounts:[],tarunsongpagecounts:[],hemanthmusicpagecounts:[],ramanasingerpagecounts:[],singerpage:1}))
  
     .catch()
  }
-
+    }
          next=()=>{
 
           const {language,allsongspagecount,page}=this.state;
@@ -311,7 +314,7 @@ class Audios extends React.Component{
              
 
             axios({
-              url:'https://tranquil-bastion-03369.herokuapp.com/findmusicbylanguage',
+              url:'http://localhost:2077/findmusicbylanguage',
               method:'POST',
               headers:{'Content-type':'application/json'},
               data:
@@ -344,7 +347,7 @@ class Audios extends React.Component{
                
   
               axios({
-                url:'https://tranquil-bastion-03369.herokuapp.com/findmusicbylanguage',
+                url:'http://localhost:2077/findmusicbylanguage',
                 method:'POST',
                 headers:{'Content-type':'application/json'},
                 data:
@@ -373,7 +376,7 @@ if(mypage>0)
   this.setState({songpage:mypage})
 }
             axios({
-              url:'https://tranquil-bastion-03369.herokuapp.com/findbysongname',
+              url:'http://localhost:2077/findbysongname',
               method:'POST',
               headers:{'Content-type':'application/json'},
               data:
@@ -403,7 +406,7 @@ if(mypage>0)
             this.setState({songpage:mypage})
           
                       axios({
-                        url:'https://tranquil-bastion-03369.herokuapp.com/findbysongname',
+                        url:'http://localhost:2077/findbysongname',
                         method:'POST',
                         headers:{'Content-type':'application/json'},
                         data:
@@ -433,7 +436,7 @@ if(mypage>0)
               this.setState({pages:mypage})
             }
             axios({
-              url:'https://tranquil-bastion-03369.herokuapp.com/findbymoviename',
+              url:'http://localhost:2077/findbymoviename',
               method:'POST',
               headers:{'Content-type':'application/json'},
               data:
@@ -462,7 +465,7 @@ if(mypage>0)
                           this.setState({pages:mypage})
                         
                         axios({
-                          url:'https://tranquil-bastion-03369.herokuapp.com/findbymoviename',
+                          url:'http://localhost:2077/findbymoviename',
                           method:'POST',
                           headers:{'Content-type':'application/json'},
                           data:
@@ -495,7 +498,7 @@ if(mypage>0)
 
 
               axios({
-                          url:'https://tranquil-bastion-03369.herokuapp.com/findbymusicdirector',
+                          url:'http://localhost:2077/findbymusicdirector',
                           method:'POST',
                           headers:{'Content-type':'application/json'},
                           data:
@@ -527,7 +530,7 @@ if(mypage>0)
           
           
                         axios({
-                                    url:'https://tranquil-bastion-03369.herokuapp.com/findbymusicdirector',
+                                    url:'http://localhost:2077/findbymusicdirector',
                                     method:'POST',
                                     headers:{'Content-type':'application/json'},
                                     data:
@@ -559,7 +562,7 @@ this.setState({singerpage:mypage})
             }
             
                         axios({
-                          url:'https://tranquil-bastion-03369.herokuapp.com/findbysinger',
+                          url:'http://localhost:2077/findbysinger',
                           method:'POST',
                           headers:{'Content-type':'application/json'},
                           data:
@@ -591,7 +594,7 @@ this.setState({singerpage:mypage})
           
                       
                                   axios({
-                                    url:'https://tranquil-bastion-03369.herokuapp.com/findbysinger',
+                                    url:'http://localhost:2077/findbysinger',
                                     method:'POST',
                                     headers:{'Content-type':'application/json'},
                                     data:
@@ -625,7 +628,7 @@ this.setState({singerpage:mypage})
                   this.setState({sarathpage:mypage})
                 
                 axios({
-                  url:'https://tranquil-bastion-03369.herokuapp.com/findbymoviename',
+                  url:'http://localhost:2077/findbymoviename',
                   method:'POST',
                   headers:{'Content-type':'application/json'},
                   data:
@@ -657,7 +660,7 @@ this.setState({singerpage:mypage})
                   this.setState({sarathpage:mypage})
                 }
                 axios({
-                  url:'https://tranquil-bastion-03369.herokuapp.com/findbymoviename',
+                  url:'http://localhost:2077/findbymoviename',
                   method:'POST',
                   headers:{'Content-type':'application/json'},
                   data:
@@ -686,7 +689,7 @@ this.setState({singerpage:mypage})
                   this.setState({tarunpage:mypage})
                 }
                             axios({
-                              url:'https://tranquil-bastion-03369.herokuapp.com/findbysongname',
+                              url:'http://localhost:2077/findbysongname',
                               method:'POST',
                               headers:{'Content-type':'application/json'},
                               data:
@@ -716,7 +719,7 @@ this.setState({singerpage:mypage})
                             this.setState({tarunpage:mypage})
                           
                                       axios({
-                                        url:'https://tranquil-bastion-03369.herokuapp.com/findbysongname',
+                                        url:'http://localhost:2077/findbysongname',
                                         method:'POST',
                                         headers:{'Content-type':'application/json'},
                                         data:
@@ -750,7 +753,7 @@ this.setState({singerpage:mypage})
               
               
                             axios({
-                                        url:'https://tranquil-bastion-03369.herokuapp.com/findbymusicdirector',
+                                        url:'http://localhost:2077/findbymusicdirector',
                                         method:'POST',
                                         headers:{'Content-type':'application/json'},
                                         data:
@@ -782,7 +785,7 @@ this.setState({singerpage:mypage})
                         
                         
                                       axios({
-                                                  url:'https://tranquil-bastion-03369.herokuapp.com/findbymusicdirector',
+                                                  url:'http://localhost:2077/findbymusicdirector',
                                                   method:'POST',
                                                   headers:{'Content-type':'application/json'},
                                                   data:
@@ -814,7 +817,7 @@ this.setState({ramanapage:mypage})
             }
             
                         axios({
-                          url:'https://tranquil-bastion-03369.herokuapp.com/findbysinger',
+                          url:'http://localhost:2077/findbysinger',
                           method:'POST',
                           headers:{'Content-type':'application/json'},
                           data:
@@ -846,7 +849,7 @@ this.setState({ramanapage:mypage})
           
                       
                                   axios({
-                                    url:'https://tranquil-bastion-03369.herokuapp.com/findbysinger',
+                                    url:'http://localhost:2077/findbysinger',
                                     method:'POST',
                                     headers:{'Content-type':'application/json'},
                                     data:
@@ -1169,8 +1172,6 @@ return  <Zoom top cascade><div  >
    <div style={{color:'yellow'}}>SINGERS:</div>
 
    <div style={{color:'white'}}>{item.singers[0]}</div>
-
-
    <br/>  
 </div>
 </Zoom>
@@ -1182,25 +1183,27 @@ return  <Zoom top cascade><div  >
 
 :<Zoom><div className="mt-3 text-white text-center">SORRY NO SONGS FOUND IN {language} </div></Zoom>}
 
-<br/>
 
 
+{sarathmoviepagecounts.length===0 && tarunsongpagecounts.length===0 && hemanthmusicpagecounts.length===0 && ramanasingerpagecounts.length===0?
 
-<div class="center">
+
+<div>
+  
+  <div class="center">
     <div className="pagination">
 {pagecounts.length!==0 &&songnamepagecounts.length===0 &&moviepagecounts.length===0&&musicpagecounts.length===0&&singerpagecounts.length===0 && sarathmoviepagecounts.length===0 && tarunsongpagecounts.length===0 && hemanthmusicpagecounts.length===0 && ramanasingerpagecounts.length===0? 
 
 <div>
-    <button onClick={this.prev}>PREV</button>
+    <button onClick={this.prev} className="btn btn-sm">PREV</button>
 
-   <button onClick={this.next}>NEXT</button>
+   <button onClick={this.next} className="btn btn-sm">NEXT</button>
 
   
 
 </div>
 
 :null}
-
 </div>
 </div>
 <div class="center">
@@ -1208,9 +1211,9 @@ return  <Zoom top cascade><div  >
 {songnamepagecounts.length!==0 &&findingsongbysongname>1 ? 
 
 <div>
-    <button onClick={this.songnameprev}>PREV</button>
+    <button onClick={this.songnameprev} className="btn btn-sm">PREV</button>
 
-   <button onClick={this.songnamenext}>NEXT</button>
+   <button onClick={this.songnamenext} className="btn btn-sm">NEXT</button>
 
 </div>
 
@@ -1225,9 +1228,9 @@ return  <Zoom top cascade><div  >
 {moviepagecounts.length!==0 && findingsongsbymovienamespagecount>1? 
 <div>
 
-<button onClick={this.movienameprev}>PREV</button>
+<button onClick={this.movienameprev} className="btn btn-sm">PREV</button>
 
-   <button onClick={this.movienamenext}>NEXT</button>
+   <button onClick={this.movienamenext} className="btn btn-sm">NEXT</button>
 
   </div>
 
@@ -1245,17 +1248,15 @@ return  <Zoom top cascade><div  >
 
 <div>
 
-<button onClick={this.musicprev}>PREV</button>
+<button onClick={this.musicprev} className="btn btn-sm">PREV</button>
 
-   <button onClick={this.musicnext}>NEXT</button>
+   <button onClick={this.musicnext} className="btn btn-sm">NEXT</button>
 
   </div>
 
-:null}
+:<div style={{display:'none'}}>ok</div>}
 </div>
 </div>
-
-
 
 <div class="center">
     <div className="pagination">
@@ -1263,9 +1264,9 @@ return  <Zoom top cascade><div  >
 
 <div>
 
-<button onClick={this.singerprev}>PREV</button>
+<button onClick={this.singerprev} className="btn btn-sm">PREV</button>
 
-   <button onClick={this.singernext}>NEXT</button>
+   <button onClick={this.singernext} className="btn btn-sm">NEXT</button>
 
   </div>
 
@@ -1273,13 +1274,15 @@ return  <Zoom top cascade><div  >
 :null}    
 </div>
 </div>
+  </div>
+  :<div style={{display:'none'}}> ok</div>}
 
 
 
 
+{sarathmoviepagecounts.length!==0 || tarunsongpagecounts.length!==0 || hemanthmusicpagecounts.length!==0 || ramanasingerpagecounts.length!==0?
 
-
-
+<div>
 
 <div class="center">
     <div className="pagination">
@@ -1287,9 +1290,9 @@ return  <Zoom top cascade><div  >
 
 <div>
 
-<button onClick={this.sarathprev}>PREV</button>
+<button onClick={this.sarathprev} className="btn btn-sm">PREV</button>
 
-   <button onClick={this.sarathnext}>NEXT</button>
+   <button onClick={this.sarathnext} className="btn btn-sm">NEXT</button>
 
   </div>
 
@@ -1298,16 +1301,15 @@ return  <Zoom top cascade><div  >
 </div>
 </div>
 
-
 <div class="center">
     <div className="pagination">
 {tarunsongpagecounts.length!==0 && tarunpagecount>1 ? 
 
 <div>
 
-<button onClick={this.tarunprev}>PREV</button>
+<button onClick={this.tarunprev} className="btn btn-sm">PREV</button>
 
-   <button onClick={this.tarunnext}>NEXT</button>
+   <button onClick={this.tarunnext} className="btn btn-sm">NEXT</button>
 
   </div>
 
@@ -1323,9 +1325,9 @@ return  <Zoom top cascade><div  >
 
 <div>
 
-<button onClick={this.hemanthprev}>PREV</button>
+<button onClick={this.hemanthprev} className="btn btn-sm">PREV</button>
 
-   <button onClick={this.hemanthnext}>NEXT</button>
+   <button onClick={this.hemanthnext} className="btn btn-sm">NEXT</button>
 
   </div>
 
@@ -1339,18 +1341,22 @@ return  <Zoom top cascade><div  >
     <div className="pagination">
 {ramanasingerpagecounts.length!==0  && ramanapagecount>1 ? 
 
-<div>
+<div style={{display:'inline'}}>
 
-<button onClick={this.ramanaprev}>PREV</button>
+<button onClick={this.ramanaprev} className="btn btn-sm">PREV</button>
 
-   <button onClick={this.ramananext}>NEXT</button>
+   <button onClick={this.ramananext} className="btn btn-sm">NEXT</button>
 
   </div>
-
 
 :null}    
 </div>
 </div>
+
+  </div>
+:null}
+
+
 
   
             </div>
