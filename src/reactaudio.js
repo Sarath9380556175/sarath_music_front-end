@@ -874,7 +874,7 @@ this.setState({ramanapage:mypage})
         
     render()
     {
-      const {sarathpagecount,tarunpagecount,hemanthpagecount,ramanapagecount,sarathmoviepagecounts,tarunsongpagecounts,hemanthmusicpagecounts,ramanasingerpagecounts,  interimText,findingsongbysongname,findingsongsbymovienamespagecount,findingsongsbysinger,findsongsbymusicdirector,pagecounts,songnamepagecounts,moviepagecounts,musicpagecounts,singerpagecounts, songs,language,filtersongs,issongexist,moviesong,ismovieexist,musicsongs,isdirectorexist,singersogs,issingerexist}=this.state;
+      const {sarathpagecount,allsongspagecount,tarunpagecount,hemanthpagecount,ramanapagecount,sarathmoviepagecounts,tarunsongpagecounts,hemanthmusicpagecounts,ramanasingerpagecounts,  interimText,findingsongbysongname,findingsongsbymovienamespagecount,findingsongsbysinger,findsongsbymusicdirector,pagecounts,songnamepagecounts,moviepagecounts,musicpagecounts,singerpagecounts, songs,language,filtersongs,issongexist,moviesong,ismovieexist,musicsongs,isdirectorexist,singersogs,issingerexist}=this.state;
    
       
         return(
@@ -1191,7 +1191,7 @@ return  <Zoom top cascade><div  >
 <div>
   
   
-{pagecounts.length!==0 &&songnamepagecounts.length===0 &&moviepagecounts.length===0&&musicpagecounts.length===0&&singerpagecounts.length===0 && sarathmoviepagecounts.length===0 && tarunsongpagecounts.length===0 && hemanthmusicpagecounts.length===0 && ramanasingerpagecounts.length===0? 
+{pagecounts.length!==0 &&songnamepagecounts.length===0 &&moviepagecounts.length===0&&musicpagecounts.length===0&&singerpagecounts.length===0 && sarathmoviepagecounts.length===0 && tarunsongpagecounts.length===0 && hemanthmusicpagecounts.length===0 && ramanasingerpagecounts.length===0 && allsongspagecount>1? 
   <div class="center">
     <div className="pagination">
     <button onClick={this.prev} className="btn btn-sm">PREV</button>
