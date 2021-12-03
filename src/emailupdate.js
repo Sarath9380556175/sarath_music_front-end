@@ -9,7 +9,7 @@ this.props.history.push('/home')
     {
         return(
             <div>
-<div className="text-white mt-3 ml-3" onClick={this.ok}>BACK</div>
+<div className="text-success mt-3 ml-3" onClick={this.ok}>BACK</div><br/>
 <div className="mt-3 text-white text-center">
                 PLEASE ENTER A VALID EMAIL ADDRESS
             </div>
