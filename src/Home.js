@@ -921,14 +921,14 @@ netfair=()=>{
               
 </Carousel>
 
- {username!==undefined?<div  style={{textAlign:'right'}} className="mt-3">
+ {username!==undefined|| googleusername!==undefined || facebookusername!==undefined?<div  style={{textAlign:'right'}} className="mt-3">
     
           <div style={{display:'inline',fontStyle:'italic',fontSize:'14px',fontFamily:'cursive'}} className="mr-3 text-white" onClick={this.requestedsongs}>ADMIN</div>
           
      <div style={{display:'inline',fontStyle:'italic',fontSize:'14px',fontFamily:'cursive'}} className="mr-3 mt-3 text-white srh"  onClick={this.help}>REQUEST ANY SONG</div>
      </div>:null}
 <br/>
-     {username!==undefined?<div>
+     {username!==undefined|| googleusername!==undefined || facebookusername!==undefined?<div>
      <div className="mt-3 text-center" style={{color:'white',fontStyle:'italic',fontSize:'18px',fontFamily:'serif'}} >SELECT YOUR FAVOURITE LANGUAGE</div>
 <br/>
             <div className="text-center">
