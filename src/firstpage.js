@@ -31,7 +31,7 @@ class Page extends React.Component{
     {
         return(
             <div>
-                <img src="songimages/companylogo.png" className="fixed-top" width="100%" height="100%" alt="Nothing Found"/>
+                <img src="songimages/musiclogo.png" className="fixed-top pt-3 pb-3" width="100%" height="100%" alt="Nothing Found"/>
             </div>
         )
     }
