@@ -823,7 +823,7 @@ netfair=()=>{
         <form className="text-center">
      
 <br/>
-<div className="text-center text-success">ADMIN</div>
+<div className="text-center text-success">ACCOUNT DEACTIVATE FORM</div>
 <br/>
     <input type="email" name="useremail" placeholder="EMAIL ADDRESS" onChange={this.emailuser} required/><br/><br/>
     <div className="btn btn-success" onClick={this.netfair}>submit</div>
