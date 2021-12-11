@@ -702,7 +702,7 @@ netfair=()=>{
     {valid===true?<div style={{display:'inline'}}>&nbsp;&#10004;</div>:valid===false?<div style={{display:'inline'}}>&nbsp;&#10060;</div>:null}
     <br/><br/>  
     <input type="tel" name="email" pattern="[0-9]{10}" placeholder="MOBILE NUMBER" maxLength='10'  onChange={this.name}required/><br/><br/>
-   <input type="Password" name="Pass" placeholder="PASSWORD" onChange={this.password} required/><br/><br/>
+   <input type="Password" name="Pass" placeholder="PASSWORD" onChange={this.password} pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required/><br/><br/>
    <input type="password" name="confirm password" placeholder="CONFIRM PASSWORD" onChange={this.confirms} required/>
    {validpassword===true?<div style={{display:'inline'}}>&nbsp;&#10004;</div>:validpassword===false?<div style={{display:'inline'}}>&nbsp;&#10060;</div>:null}
    <br/>
