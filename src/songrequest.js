@@ -12,7 +12,8 @@ class Requestsong extends React.Component{
             songname:undefined,
             moviename:undefined,
             language:undefined,
-            emailId:undefined
+            emailId:undefined,
+            customerid:undefined
         }
     }
 
@@ -36,7 +37,7 @@ class Requestsong extends React.Component{
                 }
             })
 
-            this.setState({email:skr.email,songname:skr.songname,moviename:skr.moviename,language:skr.language,emailId:skr.emailid})
+            this.setState({email:skr.email,songname:skr.songname,moviename:skr.moviename,language:skr.language,emailId:skr.emailid,customerid:skr.customerid})
 
           
            
@@ -44,7 +45,8 @@ class Requestsong extends React.Component{
 
     back=()=>{
      
-        this.props.history.push('/home');
+        const {customerid}=this.state;
+        this.props.history.push(`/home?email=${customerid}`);
     }
     render()
     {
