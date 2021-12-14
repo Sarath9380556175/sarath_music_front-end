@@ -23,6 +23,8 @@ import Signupsuccess from './signupsuccess';
 import Deactivateotp from './deactivateaccountotp';
 import Deactivatestatus from './deactivatestatus';
 import Notdeactivatestatus from './notdeactivatedstatus';
+import Loginotpverification from './loginotpverification';
+import Invalidotp from './invalidotp';
 class Router extends React.Component{
     render()
     {
@@ -52,7 +54,8 @@ class Router extends React.Component{
 <Route exact path="/deactivatechecking" component={Deactivateotp}/>
 <Route exact path="/deactivatestatus" component={Deactivatestatus}/>
 <Route exact path="/notdeactivatestatus" component={Notdeactivatestatus}/>
-
+<Route exact path="/loginverification" component={Loginotpverification}/>
+<Route exact path="/INVALIDOTP" component={Invalidotp}/>
 </BrowserRouter>
             </div>
         )
