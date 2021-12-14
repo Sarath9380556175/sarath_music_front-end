@@ -1,12 +1,14 @@
 import React from 'react';
 import Zoom from 'react-reveal/Zoom';
 import qs from 'query-string';
+import axios from 'axios';
 class Thankyou extends React.Component{
     constructor()
     {
         super();
         this.state={
-          email:undefined
+          isvaliduser:undefined,
+          username:undefined
         }
     }
 
@@ -14,12 +16,41 @@ class Thankyou extends React.Component{
     {
        const skr=qs.parse(this.props.location.search)
 
-       this.setState({email:skr.email})
+      
+       axios({
+        url:'http://localhost:2077/login',
+        method:'POST',
+        headers:{'Content-type':'application/json'},
+        data:
+        {
+            email:skr.mobilenumber,
+            password:skr.password
+        }
+    })
+
+    .then(response=>this.setState({isvaliduser:response.data.login,username:response.data.userdetails.map((item)=>{return item.mobilenumber})}))
+
+    .catch(error=>console.log(error))
+
+    axios({
+        url:'http://localhost:2077/deleteotp',
+        method:'POST',
+        headers:{'Content-type':'application/json'},
+        data:
+        {
+            otp:skr.otp
+        }
+    })
+
+
     }
 
     back=()=>{
-        const {email}=this.state;
-        this.props.history.push(`/home?email=${email}`)
+        const {username,isvaliduser}=this.state;
+
+
+    
+        this.props.history.push(`/home?email=${username}&&isreal=${isvaliduser}`)
     }
     render()
     {
@@ -27,7 +58,7 @@ class Thankyou extends React.Component{
             <div>
                 <div className="mt-3 ml-2 text-success" onClick={this.back}>BACK</div>
 <Zoom cascade bottom><div className="mt-3 text-center text-white">
-                SUCCESSFULL
+SUCCESSFULL
             </div></Zoom>
             </div>
             
