@@ -1,5 +1,6 @@
 import React from 'react';
 import Zoom from 'react-reveal/Zoom';
+import qs from 'query-string';
 class Mythanks extends React.Component{
     
 constructor()
