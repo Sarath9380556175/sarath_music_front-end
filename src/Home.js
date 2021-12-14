@@ -87,7 +87,7 @@ componentDidMount()
 {
     const skr=qs.parse(this.props.location.search)
 
-    this.setState({username:skr.email})
+     this.setState({username:skr.email,isvaliduser:skr.isreal})
 
     axios({
         url:'https://tranquil-bastion-03369.herokuapp.com/mails',
