@@ -2,11 +2,30 @@ import React from 'react';
 import Zoom from 'react-reveal/Zoom';
 class Mythanks extends React.Component{
     
+constructor()
+{
+    super();
 
+    this.state=
+    {
+        mobilenumber:undefined
+    }
+}
+
+componentDidMount()
+{
+  const skr=qs.parse(this.props.location.search);
+
+  this.setState({mobilenumber:skr.mobilenumber})
+}
 
     back=()=>{
-        this.props.history.push('/home')
+
+        const {mobilenumber}=this.state;
+
+        this.props.history.push(`/home?email=${mobilenumber}`)
     }
+
     render()
     {
         return(
