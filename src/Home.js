@@ -473,8 +473,9 @@ this.setState({songname:songname})
 
     songsrequest=()=>{
 
-        const {youremail,moviename,songname,languageselection,emailid}=this.state;
-this.props.history.push(`/songrequest/?email=${youremail}&&moviename=${moviename}&&songname=${songname}&&language=${languageselection}&&emailid=${emailid}`)
+       
+        const {youremail,moviename,songname,languageselection,emailid,username}=this.state;
+this.props.history.push(`/songrequest/?email=${youremail}&&moviename=${moviename}&&songname=${songname}&&language=${languageselection}&&emailid=${emailid}&&customerid=${username}`)
     }
 
     requestedsongs=()=>{
@@ -488,7 +489,7 @@ this.props.history.push(`/songrequest/?email=${youremail}&&moviename=${moviename
         this.setState({lakshmi:false})
     }
     bujala=()=>{
-        const {yellanur,atp}=this.state;
+        const {yellanur,atp,username}=this.state;
         axios({
             url:'https://tranquil-bastion-03369.herokuapp.com/requestedsongnotification',
             method:'POST',
@@ -499,8 +500,7 @@ this.props.history.push(`/songrequest/?email=${youremail}&&moviename=${moviename
                 email:atp
             }
         })
-
-        this.props.history.push('/thankyouss')
+  this.props.history.push(`/thankyouss/?mobilenumber=${username}`)
  
     }
 
