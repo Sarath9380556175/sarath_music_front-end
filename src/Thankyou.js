@@ -18,7 +18,7 @@ class Thankyou extends React.Component{
 
       
        axios({
-        url:'http://localhost:2077/login',
+        url:'https://tranquil-bastion-03369.herokuapp.com/login',
         method:'POST',
         headers:{'Content-type':'application/json'},
         data:
@@ -33,7 +33,7 @@ class Thankyou extends React.Component{
     .catch(error=>console.log(error))
 
     axios({
-        url:'http://localhost:2077/deleteotp',
+        url:'https://tranquil-bastion-03369.herokuapp.com/deleteotp',
         method:'POST',
         headers:{'Content-type':'application/json'},
         data:
