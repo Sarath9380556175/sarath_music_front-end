@@ -23,7 +23,7 @@ class Loginotpverification extends React.Component{
         this.setState({mobilenumber:skr.email,password:skr.password,emailaddress:skr.loginemail})
 
         axios({
-            url:'http://localhost:2077/forgot',
+            url:'https://tranquil-bastion-03369.herokuapp.com/forgot',
             method:'POST',
             headers:{'Content-type':'application/json'},
             data:
@@ -43,7 +43,7 @@ class Loginotpverification extends React.Component{
         const otp=event.target.value;
 
        axios({
-            url:'http://localhost:2077/isotpvalid',
+            url:'https://tranquil-bastion-03369.herokuapp.com/isotpvalid',
             method:'POST',
             headers:{'Content-type':'application/json'},
             data:
@@ -76,7 +76,7 @@ class Loginotpverification extends React.Component{
 
 
         axios({
-            url:'http://localhost:2077/forgot',
+            url:'https://tranquil-bastion-03369.herokuapp.com/forgot',
             method:'POST',
             headers:{'Content-type':'application/json'},
             data:
