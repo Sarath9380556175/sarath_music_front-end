@@ -75,7 +75,10 @@ class Skr extends React.Component{
             validpassword:undefined,
              deactivate:false,
             canwedeactivate:undefined,
-            deactivateemail:undefined
+            deactivateemail:undefined,
+               userpassword:undefined,
+            isuservalid:undefined,
+            loginemail:undefined
     
            
         }
@@ -233,16 +236,19 @@ componentDidMount()
     }
 
     logins=()=>{
-        const {isvaliduser,username}=this.state;
+         const {names,userpassword,isuservalid,loginemail}=this.state;
 
-       if(isvaliduser===true)
-       {
-        this.props.history.push(`/thankyou/?email=${username}`);
-       }
-       else if(isvaliduser===false)
-       {
-        this.props.history.push(`/thanks`);
-       }
+if(isuservalid===true)
+{
+    this.props.history.push(`/loginverification/?email=${names}&&password=${userpassword}&&loginemail=${loginemail}`);
+}
+
+else if(isuservalid===false)
+{
+    this.props.history.push('/thanks')
+
+}
+       
 }
 
 responseGoogle=(response)=>{
@@ -260,24 +266,25 @@ responseFacebook=(response)=>{
     }
 
     pass=(event)=>{
-        const {names}=this.state;
-        const password=event.target.value;
+       const {names}=this.state;
+    const password=event.target.value;
 
-        axios({
-            url:'https://tranquil-bastion-03369.herokuapp.com/login',
-            method:'POST',
-            headers:{'Content-type':'application/json'},
-            data:
-            {
-                email:names,
-                password:password
-            }
-        })
+    this.setState({userpassword:password})
 
-        .then(response=>this.setState({isvaliduser:response.data.login,username:response.data.userdetails.map((item)=>{return item.mobilenumber})}))
+    axios({
+        url:'https://tranquil-bastion-03369.herokuapp.com/login',
+        method:'POST',
+        headers:{'Content-type':'application/json'},
+        data:
+        {
+            email:names,
+            password:password
+        }
+    })
 
-        .catch(error=>console.log(error))
+    .then(response=>this.setState({isuservalid:response.data.login,loginemail:response.data.userdetails.map((item)=>{return item.email})}))
 
+    .catch(error=>console.log(error))
     }
 
     forgot=()=>{
