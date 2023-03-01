@@ -23,7 +23,7 @@ class Music extends React.Component{
 
       this.setState({language:skr.language})
       axios({
-          url:'https://tranquil-bastion-03369.herokuapp.com/findmusicbylanguage',
+          url:'https://fancy-leaf-4030.on.fleek.co/findmusicbylanguage',
           method:'POST',
           headers:{'Content-type':'application/json'},
           data:
@@ -44,7 +44,7 @@ class Music extends React.Component{
   
 
    axios({
-       url:'https://tranquil-bastion-03369.herokuapp.com/findbysongname',
+       url:'https://fancy-leaf-4030.on.fleek.co/findbysongname',
        method:'POST',
        headers:{'Content-type':'application/json'},
        data:
