@@ -90,7 +90,7 @@ componentDidMount()
      this.setState({username:skr.email,isvaliduser:skr.isreal})
 
     axios({
-        url:'https://tranquil-bastion-03369.herokuapp.com/mails',
+        url:'https://effortless-hamster-ddde40.netlify.app/mails',
         method:'POST',
         headers:{'Content-type':'application/json'}
     })
@@ -102,7 +102,7 @@ componentDidMount()
     document.getElementById("allubhai").innerHTML="ok";
 
     axios({
-        url:'https://tranquil-bastion-03369.herokuapp.com/images',
+        url:'https://effortless-hamster-ddde40.netlify.app/images',
         method:'POST',
         headers:{'Content-type':'application/json'}
     })
@@ -112,7 +112,7 @@ componentDidMount()
     .catch(error=>console.log(error));
 
     axios({
-        url:'https://tranquil-bastion-03369.herokuapp.com/songsrequestedmails',
+        url:'https://effortless-hamster-ddde40.netlify.app/songsrequestedmails',
         method:'POST',
         headers:{'Content-type':'application/json'}
       
@@ -124,7 +124,7 @@ componentDidMount()
 
 
     axios({
-        url:'https://tranquil-bastion-03369.herokuapp.com/sendmobilenumbers',
+        url:'https://effortless-hamster-ddde40.netlify.app/sendmobilenumbers',
         method:'POST',
         headers:{'Content-type':'application/json'}
       
@@ -136,7 +136,7 @@ componentDidMount()
 
 
     axios({
-        url:'https://tranquil-bastion-03369.herokuapp.com/sendmails',
+        url:'https://effortless-hamster-ddde40.netlify.app/sendmails',
         method:'POST',
         headers:{'Content-type':'application/json'}
       
@@ -159,7 +159,7 @@ componentDidMount()
         this.setState({name:name});
 
         axios({
-            url:'https://tranquil-bastion-03369.herokuapp.com/signupcheck',
+            url:'https://effortless-hamster-ddde40.netlify.app/signupcheck',
             method:'POST',
             headers:{'Content-type':'application/json'},
             data:
